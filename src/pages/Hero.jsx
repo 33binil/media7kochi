@@ -40,7 +40,7 @@ function preloadImages(folder) {
   const imgs = []
   for (let i = 1; i <= TOTAL_FRAMES; i++) {
     const img = new Image()
-    img.src = `/${folder}/ezgif-frame-${String(i).padStart(3, '0')}.png`
+    img.src = `/${folder}/ezgif-frame-${String(i).padStart(3, '0')}.webp`
     imgs.push(img)
   }
   return imgs
@@ -56,7 +56,7 @@ export default function Hero() {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
 
   function getFolder() {
-    return isMobile ? 'hero_mobile' : 'hero'
+    return isMobile ? 'hero_mobile' : 'hero_desktop'
   }
 
   useEffect(() => {
