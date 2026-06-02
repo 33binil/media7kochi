@@ -36,21 +36,21 @@ const features = [
   },
 ]
 
-function preloadImages(folder) {
-  const imgs = []
-  for (let i = 1; i <= TOTAL_FRAMES; i++) {
-    const img = new Image()
-    img.src = `/${folder}/ezgif-frame-${String(i).padStart(3, '0')}.webp`
-    imgs.push(img)
-  }
-  return imgs
+const LAZY_BUFFER = 20
+
+function createImage(folder, index) {
+  const img = new Image()
+  img.src = `/${folder}/ezgif-frame-${String(index + 1).padStart(3, '0')}.webp`
+  return img
 }
 
 export default function Hero() {
   const canvasRef = useRef(null)
   const imagesRef = useRef([])
+  const loadedRef = useRef(new Set())
   const frameRef = useRef(0)
   const rafRef = useRef(null)
+  const [ready, setReady] = useState(false)
   const [progress, setProgress] = useState(0)
   const [activeFeature, setActiveFeature] = useState(0)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
@@ -59,65 +59,75 @@ export default function Hero() {
     return isMobile ? 'hero_mobile' : 'hero_desktop'
   }
 
-  useEffect(() => {
+  function loadFrame(index) {
+    if (loadedRef.current.has(index)) return
+    loadedRef.current.add(index)
+    const img = createImage(getFolder(), index)
+    imagesRef.current[index] = img
+    img.onload = () => {
+      if (!ready && index === 0) {
+        drawFrame(0)
+        setReady(true)
+      }
+    }
+  }
+
+  function ensureWindow(center) {
+    const start = Math.max(0, center - LAZY_BUFFER)
+    const end = Math.min(TOTAL_FRAMES - 1, center + LAZY_BUFFER)
+    for (let i = start; i <= end; i++) loadFrame(i)
+  }
+
+  function drawFrame(index) {
+    const img = imagesRef.current[index]
+    if (!img || !img.complete) return
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
+    const cw = canvas.width
+    const ch = canvas.height
+    const cr = cw / ch
+    const ir = img.naturalWidth / img.naturalHeight
+    let sx, sy, sw, sh
+    if (ir > cr) {
+      sh = img.naturalHeight
+      sw = sh * cr
+      sx = (img.naturalWidth - sw) / 2
+      sy = 0
+    } else {
+      sw = img.naturalWidth
+      sh = sw / cr
+      sx = 0
+      sy = (img.naturalHeight - sh) / 2
+    }
+    ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch)
+  }
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
 
     function resize() {
       canvas.width = window.innerWidth
       canvas.height = window.innerHeight
       const mobile = window.innerWidth <= 600
       setIsMobile(mobile)
+      if (loadedRef.current.has(frameRef.current)) {
+        drawFrame(frameRef.current)
+      }
     }
+
     resize()
     window.addEventListener('resize', resize)
 
-    let loaded = 0
-    function drawFrame(index) {
-      const img = imagesRef.current[index]
-      if (!img || !img.complete) return
-      const cw = canvas.width
-      const ch = canvas.height
-      const cr = cw / ch
-      const ir = img.naturalWidth / img.naturalHeight
-      let sx, sy, sw, sh
-      if (ir > cr) {
-        sh = img.naturalHeight
-        sw = sh * cr
-        sx = (img.naturalWidth - sw) / 2
-        sy = 0
-      } else {
-        sw = img.naturalWidth
-        sh = sw / cr
-        sx = 0
-        sy = (img.naturalHeight - sh) / 2
-      }
-      ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch)
-    }
-
-    function loadImages() {
-      loaded = 0
-      imagesRef.current = preloadImages(getFolder())
-      imagesRef.current.forEach((img) => {
-        if (img.complete) {
-          loaded++
-          if (loaded === 1) drawFrame(frameRef.current)
-        } else {
-          img.onload = () => {
-            loaded++
-            if (loaded === 1) drawFrame(frameRef.current)
-          }
-        }
-      })
-    }
-
-    loadImages()
+    imagesRef.current = []
+    loadedRef.current = new Set()
+    ensureWindow(0)
 
     return () => {
       window.removeEventListener('resize', resize)
     }
-  }, [isMobile])
+  }, [isMobile]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleScroll = useCallback(() => {
     if (rafRef.current) return
@@ -128,31 +138,11 @@ export default function Hero() {
       setProgress(p)
 
       const frameIndex = Math.min(Math.floor(p * (TOTAL_FRAMES - 1)), TOTAL_FRAMES - 1)
+      ensureWindow(frameIndex)
+
       if (frameIndex !== frameRef.current) {
         frameRef.current = frameIndex
-        const canvas = canvasRef.current
-        if (!canvas) return
-        const ctx = canvas.getContext('2d')
-        const img = imagesRef.current[frameIndex]
-        if (img && img.complete) {
-          const cw = canvas.width
-          const ch = canvas.height
-          const cr = cw / ch
-          const ir = img.naturalWidth / img.naturalHeight
-          let sx, sy, sw, sh
-          if (ir > cr) {
-            sh = img.naturalHeight
-            sw = sh * cr
-            sx = (img.naturalWidth - sw) / 2
-            sy = 0
-          } else {
-            sw = img.naturalWidth
-            sh = sw / cr
-            sx = 0
-            sy = (img.naturalHeight - sh) / 2
-          }
-          ctx.drawImage(img, sx, sy, sw, sh, 0, 0, cw, ch)
-        }
+        drawFrame(frameIndex)
       }
 
       for (let i = features.length - 1; i >= 0; i--) {
@@ -162,7 +152,7 @@ export default function Hero() {
         }
       }
     })
-  }, [])
+  }, [isMobile]) // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -172,8 +162,19 @@ export default function Hero() {
 
   return (
     <>
-      <div className="fixed inset-0">
-        <canvas ref={canvasRef} className="block w-full h-full" />
+      <div className="fixed inset-0 bg-black">
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
+          style={{
+            backgroundImage: 'url(/hero.jpeg)',
+            opacity: ready ? 0 : 1,
+          }}
+        />
+        <canvas
+          ref={canvasRef}
+          className="block w-full h-full transition-opacity duration-700"
+          style={{ opacity: ready ? 1 : 0 }}
+        />
       </div>
 
       <div className="fixed inset-0 flex items-end pb-12 md:pb-24 pointer-events-none">
