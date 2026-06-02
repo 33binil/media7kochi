@@ -37,6 +37,7 @@ const features = [
 ]
 
 const LAZY_BUFFER = 20
+const INITIAL_LOAD = 60
 
 function createImage(folder, index) {
   const img = new Image()
@@ -51,6 +52,7 @@ export default function Hero() {
   const frameRef = useRef(0)
   const rafRef = useRef(null)
   const [ready, setReady] = useState(false)
+  const loadedCountRef = useRef(0)
   const [progress, setProgress] = useState(0)
   const [activeFeature, setActiveFeature] = useState(0)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 600)
@@ -65,10 +67,12 @@ export default function Hero() {
     const img = createImage(getFolder(), index)
     imagesRef.current[index] = img
     img.onload = () => {
-      if (!ready && index === 0) {
+      loadedCountRef.current++
+      if (!ready && loadedCountRef.current >= INITIAL_LOAD) {
         drawFrame(0)
         setReady(true)
       }
+      if (!ready && index === 0) drawFrame(0)
     }
   }
 
@@ -122,7 +126,8 @@ export default function Hero() {
 
     imagesRef.current = []
     loadedRef.current = new Set()
-    ensureWindow(0)
+    loadedCountRef.current = 0
+    for (let i = 0; i < INITIAL_LOAD; i++) loadFrame(i)
 
     return () => {
       window.removeEventListener('resize', resize)
@@ -160,8 +165,100 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
 
+  useEffect(() => {
+    if (ready) {
+      document.documentElement.style.overflowY = 'auto'
+    } else {
+      document.documentElement.style.overflowY = 'hidden'
+    }
+    return () => { document.documentElement.style.overflowY = 'auto' }
+  }, [ready])
+
   return (
     <>
+      {/* Loading screen */}
+      <div
+        className="fixed inset-0 z-50 flex flex-col items-center justify-center transition-opacity duration-700 pointer-events-none"
+        style={{
+          opacity: ready ? 0 : 1,
+          background: 'radial-gradient(ellipse at center, #0a0f1a 0%, #060a12 50%, #030508 100%)',
+        }}
+      >
+        <style>{`
+          @keyframes spin-slow { to { transform: rotate(360deg); } }
+          @keyframes spin-slower { to { transform: rotate(-360deg); } }
+          @keyframes logo-pulse {
+            0%, 100% { transform: scale(1); opacity: 0.85; }
+            50% { transform: scale(1.03); opacity: 1; }
+          }
+          @keyframes ring-fade {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+          }
+        `}</style>
+
+        <div className="relative flex flex-col items-center">
+          {/* Outer rotating ring - silver */}
+          <div className="absolute -inset-14" style={{ animation: 'spin-slow 5s linear infinite' }}>
+            <svg viewBox="0 0 200 200" className="w-full h-full" style={{ animation: 'ring-fade 4s ease-in-out infinite' }}>
+              <defs>
+                <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(255,255,255,0.35)" />
+                  <stop offset="50%" stopColor="rgba(200,200,200,0.1)" />
+                  <stop offset="100%" stopColor="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="88" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="3 7" />
+            </svg>
+          </div>
+
+          {/* Mid rotating ring - metallic */}
+          <div className="absolute -inset-10" style={{ animation: 'spin-slower 7s linear infinite' }}>
+            <svg viewBox="0 0 200 200" className="w-full h-full" style={{ animation: 'ring-fade 5s ease-in-out infinite 1s' }}>
+              <defs>
+                <linearGradient id="ringGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stopColor="rgba(220,220,225,0.25)" />
+                  <stop offset="50%" stopColor="rgba(180,180,185,0.08)" />
+                  <stop offset="100%" stopColor="rgba(220,220,225,0)" />
+                </linearGradient>
+              </defs>
+              <circle cx="100" cy="100" r="78" fill="none" stroke="url(#ringGrad2)" strokeWidth="1.5" strokeDasharray="1 5" />
+            </svg>
+          </div>
+
+          {/* Logo */}
+          <div style={{ animation: 'logo-pulse 3.5s ease-in-out infinite' }}>
+            <img
+              src="/logo.png"
+              alt="Media7"
+              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain select-none relative z-10"
+              style={{
+                filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.12)) drop-shadow(0 0 40px rgba(200,200,210,0.08))',
+              }}
+            />
+          </div>
+
+          {/* Orbiting dots - silver */}
+          <div className="absolute w-full h-full" style={{ animation: 'spin-slow 10s linear infinite' }}>
+            {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => (
+              <div
+                key={i}
+                className="absolute rounded-full"
+                style={{
+                  width: i % 2 === 0 ? 2 : 1.5,
+                  height: i % 2 === 0 ? 2 : 1.5,
+                  background: i % 2 === 0 ? 'rgba(255,255,255,0.4)' : 'rgba(200,200,210,0.25)',
+                  top: '50%',
+                  left: '50%',
+                  transform: `rotate(${deg}deg) translateY(-56px)`,
+                  transformOrigin: '0 0',
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+
       <div className="fixed inset-0 bg-black">
         <div
           className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
