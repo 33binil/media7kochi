@@ -15,6 +15,7 @@ export default function Footer({ onNavigate }) {
             <li><button onClick={() => onNavigate?.('about')} className="text-zinc-500 hover:text-white transition-colors duration-200">About</button></li>
             <li><button onClick={() => onNavigate?.('services')} className="text-zinc-500 hover:text-white transition-colors duration-200">Services</button></li>
             <li><button onClick={() => onNavigate?.('portfolio')} className="text-zinc-500 hover:text-white transition-colors duration-200">Portfolio</button></li>
+            <li><button onClick={() => onNavigate?.('careers')} className="text-zinc-500 hover:text-white transition-colors duration-200">Careers</button></li>
           </ul>
         </div>
         <div>

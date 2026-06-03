@@ -6,6 +6,7 @@ import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
+import Careers from './pages/Careers'
 import Navbar from './components/Navbar'
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
       {page === 'portfolio' && <Portfolio onNavigate={setPage} />}
       {page === 'blog' && <Blog onNavigate={setPage} />}
       {page === 'contact' && <Contact onNavigate={setPage} />}
+      {page === 'careers' && <Careers onNavigate={setPage} />}
     </div>
   )
 }

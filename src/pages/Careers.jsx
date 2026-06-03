@@ -1,9 +1,164 @@
-import React from 'react'
+import Footer from '../components/Footer'
 
-const Home = () => {
+export default function Careers({ onNavigate }) {
   return (
-    <div>Careers</div>
+    <div className="h-screen overflow-y-auto bg-[#0B0B0B] text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+      <main>
+        {/* Hero Section */}
+        <section className="relative h-[819px] flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <img
+              alt="A wide-angle shot of a high-end, contemporary corporate office environment at twilight. The space features minimalist architectural lines, floor-to-ceiling glass windows reflecting city lights, and warm ambient spotlighting. Polished concrete floors and dark charcoal walls create a sophisticated, luxury agency atmosphere. The mood is professional, exclusive, and serene, utilizing a palette of deep blacks, grays, and subtle gold reflections."
+              className="w-full h-full object-cover opacity-40"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3fCCfhwZ3psEGZR2aqmMRkS8EOsAGJznGo7n-kFkCxj_euLi2OwAxtvEenE79GJVR1jT3fQsKqmUaC3bT6SE7M_S5UlrRZxRc10yjbtyCi1kEIlhQXFAEvgxonAgLf2buh5hCP1qn_mA3vaSF1vxq9SMx8GwjvWXS2f9G_XMMGeodvs-z3YRhriOR9dZHhJz2dyMqLsQ-xSPJ2DxRfZn_bxVTwiC0S0Ns2KQu4R1rxgl-WS33TwDJpPKqJz9vLaAl2o4uJttefDc"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/0 via-[#0B0B0B]/60 to-[#0B0B0B]" />
+          </div>
+          <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <span className="font-label-sm text-primary-container mb-4 block">JOIN OUR TEAM</span>
+            <h1 className="font-display-xl text-on-surface mb-6">Shape the Future of Media.</h1>
+            <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">We are looking for visionary creators, strategic thinkers, and technical pioneers to join our exclusive collective of industry leaders.</p>
+          </div>
+        </section>
+
+        {/* Careers Grid Section */}
+        <section className="max-w-7xl mx-auto px-6 py-section-gap">
+          <div className="flex flex-col gap-stack-lg">
+            <div className="flex justify-between items-end mb-12">
+              <div>
+                <h2 className="font-headline-lg text-on-surface">Open Positions</h2>
+                <p className="text-on-surface-variant font-body-md mt-2">Filter by department or browse all roles below.</p>
+              </div>
+              <div className="flex gap-4">
+                <span className="px-4 py-2 border border-outline-variant text-label-sm rounded-full text-on-surface">All Roles</span>
+                <span className="px-4 py-2 border border-outline-variant/30 text-label-sm rounded-full text-on-surface-variant hover:border-outline-variant transition-colors cursor-pointer">Creative</span>
+                <span className="px-4 py-2 border border-outline-variant/30 text-label-sm rounded-full text-on-surface-variant hover:border-outline-variant transition-colors cursor-pointer">Strategy</span>
+              </div>
+            </div>
+
+            {/* Job Listing Cards */}
+            <div className="space-y-6">
+              {/* Card 1 */}
+              <div className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
+                <div className="flex-1">
+                  <span className="font-label-sm text-primary-container">CREATIVE</span>
+                  <h3 className="font-headline-md text-on-surface mt-2">Senior Art Director</h3>
+                  <div className="flex gap-6 mt-4 text-on-surface-variant font-body-md">
+                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> New York / Remote</span>
+                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> Full-time</span>
+                  </div>
+                </div>
+                <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
+              </div>
+
+              {/* Card 2 */}
+              <div className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
+                <div className="flex-1">
+                  <span className="font-label-sm text-primary-container">STRATEGY</span>
+                  <h3 className="font-headline-md text-on-surface mt-2">Brand Strategist</h3>
+                  <div className="flex gap-6 mt-4 text-on-surface-variant font-body-md">
+                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> London / Hybrid</span>
+                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> Full-time</span>
+                  </div>
+                </div>
+                <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
+              </div>
+
+              {/* Card 3 */}
+              <div className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
+                <div className="flex-1">
+                  <span className="font-label-sm text-primary-container">ENGINEERING</span>
+                  <h3 className="font-headline-md text-on-surface mt-2">Lead Full-Stack Developer</h3>
+                  <div className="flex gap-6 mt-4 text-on-surface-variant font-body-md">
+                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> San Francisco</span>
+                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> Full-time</span>
+                  </div>
+                </div>
+                <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Culture Bento Grid */}
+        <section className="bg-surface-container-low py-section-gap">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg text-on-surface">The Media7 Experience</h2>
+              <p className="text-on-surface-variant font-body-lg max-w-2xl mx-auto mt-4">We foster an environment where excellence is the standard and innovation is the currency.</p>
+            </div>
+            <div className="grid grid-cols-12 gap-6 h-[700px]">
+              <div className="col-span-8 relative group overflow-hidden">
+                <img
+                  alt="Team collaboration"
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5idSaOZFbtU7fCsdth_u-rlWUHBkr6tZz1eTnWyevBNoe14y870RLzs9Tvz-UnkovUFH3iCM9yiW44rjn5lUVburPenYWsxrU91nFc-eJuLqeh2GU0DJMfqC3PhZrpAjPL2Xw1K1jnOQ41uMFMZSnbvfN5EKxebkieW7fLEDSAz7ff2LO6tNdVK8Ghvgwqz0WoT3ZeO9Q6CJ5vHxnLfkgksCocAe_U9fKUqtmjVeEaxmjQMRrUXWYupylyUuljxr9BJq5-C0gRKM"
+                />
+                <div className="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black/80 to-transparent w-full">
+                  <p className="font-headline-md text-white">Collaborative Excellence</p>
+                </div>
+              </div>
+              <div className="col-span-4 flex flex-col gap-6">
+                <div className="flex-1 relative group overflow-hidden">
+                  <img
+                    alt="Office Space"
+                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAObYBjG_foNuqvX-UZGY38k5WDUusmobS9d1ovc24nEXK9iYlirPPeAic7G0SxnkODNUydxqpMGsz9IwQ4bGipy-injtY8EMQic6XITp5WBjtxp1SwT_IZC6Y5p7k1x0ufH5nDys5fWWL2xl2TdbglphHXrjOkYUN52eQYcpgznA8R97b3pDmkNnYFf2nixnuVa4_eOR55Grnyoh4pNVYxAstmfRWizTVQjnagRhHyHVe74Ss6TL2Q1wh6DhbsPDoI631bvN1Iqfc"
+                  />
+                  <div className="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black/80 to-transparent w-full">
+                    <p className="font-body-lg font-bold text-white">Inspiring Spaces</p>
+                  </div>
+                </div>
+                <div className="flex-1 bg-primary-container p-8 flex flex-col justify-end">
+                  <span className="material-symbols-outlined text-4xl mb-4 text-on-primary-fixed">star</span>
+                  <p className="font-headline-md text-on-primary-fixed leading-tight">Voted #1 Media Workplace 2024</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="max-w-7xl mx-auto px-6 py-section-gap">
+          <div className="text-center mb-16">
+            <h2 className="font-headline-lg text-on-surface mb-4">Get in Touch</h2>
+            <p className="text-on-surface-variant font-body-lg max-w-2xl mx-auto">Have questions or ready to start a conversation? Reach out to us directly.</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <a
+              href="mailto:talent@media7.agency"
+              className="group bg-[#1A1A1A] border border-white/5 p-10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 hover:scale-[1.02]"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-surface-container group-hover:bg-primary-container/20 transition-colors">
+                <span className="material-symbols-outlined text-4xl text-primary-container">mail</span>
+              </div>
+              <div>
+                <h3 className="font-headline-md text-on-surface mb-2">Gmail</h3>
+                <p className="text-on-surface-variant font-body-md">talent@media7.agency</p>
+              </div>
+              <span className="font-label-sm text-primary-container uppercase tracking-widest">Send an Email</span>
+            </a>
+            <a
+              href="https://wa.me/15558902410"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-[#1A1A1A] border border-white/5 p-10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 hover:scale-[1.02]"
+            >
+              <div className="w-16 h-16 flex items-center justify-center bg-surface-container group-hover:bg-[#25D366]/20 transition-colors">
+                <span className="material-symbols-outlined text-4xl text-[#25D366]">chat</span>
+              </div>
+              <div>
+                <h3 className="font-headline-md text-on-surface mb-2">WhatsApp</h3>
+                <p className="text-on-surface-variant font-body-md">+1 (555) 890-2410</p>
+              </div>
+              <span className="font-label-sm text-[#25D366] uppercase tracking-widest">Start a Chat</span>
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <Footer onNavigate={onNavigate} />
+    </div>
   )
 }
-
-export default Home
