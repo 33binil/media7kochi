@@ -73,6 +73,9 @@ export default function Hero() {
         setReady(true)
       }
       if (!ready && index === 0) drawFrame(0)
+      if (ready && index === frameRef.current) {
+        drawFrame(index)
+      }
     }
   }
 
