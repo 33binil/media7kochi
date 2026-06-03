@@ -319,6 +319,28 @@ export default function Hero() {
         })}
       </div>
 
+      {/* Scroll Indicator */}
+      <div
+        className="fixed left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-40"
+        style={{
+          bottom: '2rem',
+          top: 'auto',
+          opacity: progress > 0.02 ? 0 : 1,
+          transition: 'opacity 0.8s',
+        }}
+      >
+        <style>{`
+          @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(8px); opacity: 1; }
+          }
+        `}</style>
+        <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/40">Scroll</span>
+        <span className="material-symbols-outlined text-white/60 text-2xl" style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }}>
+          keyboard_arrow_down
+        </span>
+      </div>
+
       <div className="bg-black" style={{ height: `${SCROLL_SECTIONS * 100}vh` }} />
     </>
   )
