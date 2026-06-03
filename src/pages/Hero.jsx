@@ -5,39 +5,39 @@ const SCROLL_SECTIONS = 5
 
 const features = [
   {
-    range: [0, 0.18],
-    title: 'Media7',
-    subtitle: 'Digital Agency',
-    description: 'Pioneering the future of digital experiences through cutting-edge technology and creative innovation.',
+    range: [0, 0.25],
+    title: 'Media7 News Kerala',
+    subtitle: 'Media & Advertising Hub',
+    description: 'A complete digital media platform delivering news, branding, advertising, and audience engagement solutions across Kerala.',
   },
   {
-    range: [0.18, 0.38],
-    title: 'Digital Strategy',
+    range: [0.25, 0.45],
+    title: 'Visual Advertising',
     subtitle: '01 — Feature',
-    description: 'Data-driven strategies that transform brands into market leaders with measurable results.',
+    description: 'High-impact visual channel promotions, scrolling advertisements, and banner placements designed to maximize brand visibility.',
   },
   {
-    range: [0.38, 0.58],
-    title: 'Creative Design',
+    range: [0.45, 0.65],
+    title: 'Multi-Platform Reach',
     subtitle: '02 — Feature',
-    description: 'Immersive interfaces and visual narratives that captivate audiences and drive engagement.',
+    description: 'Promote your brand through Media7 News Portal, Visual Channel, WhatsApp Groups, and E-Directory networks from a single campaign.',
   },
   {
-    range: [0.58, 0.78],
-    title: 'Data Analytics',
+    range: [0.65, 0.85],
+    title: 'Social Media Network',
     subtitle: '03 — Feature',
-    description: 'Real-time insights and predictive analytics to optimize performance and accelerate growth.',
+    description: 'Expand your reach across YouTube, Facebook, Instagram, Threads, X, LinkedIn, Pinterest, and WhatsApp with targeted promotions.',
   },
   {
-    range: [0.78, 1],
-    title: 'Innovation',
+    range: [0.85, 1],
+    title: 'Performance & Growth',
     subtitle: '04 — Feature',
-    description: 'Emerging technologies and forward-thinking solutions built for tomorrow\'s challenges.',
+    description: 'Backed by millions of views and audience engagement, helping businesses build awareness and generate measurable results.',
   },
 ]
 
-const LAZY_BUFFER = 20
-const INITIAL_LOAD = 60
+const LAZY_BUFFER = 10
+const INITIAL_LOAD = 15
 
 function createImage(folder, index) {
   const img = new Image()
@@ -166,13 +166,8 @@ export default function Hero() {
   }, [handleScroll])
 
   useEffect(() => {
-    if (ready) {
-      document.documentElement.style.overflowY = 'auto'
-    } else {
-      document.documentElement.style.overflowY = 'hidden'
-    }
     return () => { document.documentElement.style.overflowY = 'auto' }
-  }, [ready])
+  }, [])
 
   return (
     <>
@@ -288,21 +283,23 @@ export default function Hero() {
               style={{
                 opacity: isActive ? opacity : 0,
                 transition: 'opacity 0.2s',
-                bottom: 'clamp(80px, 12vh, 140px)',
                 ...(isMobile
-                  ? { left: 0, right: 0, display: 'flex', justifyContent: 'center' }
-                  : { left: 'clamp(24px, 6vw, 80px)' }
+                  ? { bottom: 0, left: 0, right: 0, display: 'flex', justifyContent: 'center' }
+                  : { bottom: 'clamp(80px, 12vh, 140px)', left: 'clamp(24px, 6vw, 80px)' }
                 ),
               }}
             >
               <div
-                className="backdrop-blur-xl bg-white/[0.04] border border-white/[0.08] rounded-r-3xl rounded-l-lg px-5 py-4 md:px-8 md:py-6 max-w-lg w-full md:w-auto shadow-[0_8px_32px_rgba(0,0,0,0.3)]"
+                className="backdrop-blur-xl rounded-r-3xl rounded-l-lg px-5 py-4 md:px-8 md:py-6 max-w-lg w-full md:w-auto"
                 style={{
                   transform: isActive ? `translateY(${y}px)` : 'translateY(0px)',
                   transition: 'transform 0.2s',
+                  background: 'linear-gradient(135deg, rgba(180,140,50,0.06) 0%, rgba(120,90,30,0.03) 100%)',
+                  border: '1px solid rgba(218,165,32,0.15)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(218,165,32,0.08), 0 0 40px rgba(218,165,32,0.04)',
                 }}
               >
-                <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase mb-1.5 md:mb-2 text-white/40 block">
+                <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase mb-1.5 md:mb-2 block text-white/50">
                   {f.subtitle}
                 </span>
                 <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-none mb-2 md:mb-3 drop-shadow-xl">
