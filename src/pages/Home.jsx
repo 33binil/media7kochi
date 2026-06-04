@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { projects } from '../data/portfolio'
 
 export default function Home({ onNavigate }) {
   const ref = useRef(null)
@@ -51,20 +52,21 @@ export default function Home({ onNavigate }) {
             <div className="absolute inset-0 gradient-overlay" />
           </div>
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-            <span className="font-label-sm text-gold tracking-[0.3em] uppercase block mb-6">Established MMXIV</span>
-            <h1 className="font-display-xl text-on-background mb-8 leading-tight">
-              Crafting Identities for the <span className="text-gold italic">Global Elite.</span>
+            <span className="font-label-sm text-gold tracking-[0.3em] uppercase block mb-6">Est. 2017 in UAE</span>
+            <h1 className="font-display-xl mb-8 leading-tight">
+              <span className="text-gold">Media7</span>{' '}
+              <span className="text-on-background">a 360° creative agency based in Kerala, India.</span>
             </h1>
             <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto mb-12">
-              Media7 is a premier full-service agency specializing in ultra-luxury branding, high-stakes media strategy, and exclusive event management.
+              Media7 is a full-service media and marketing agency specializing in branding, digital marketing, media strategy, video production, advertising, and event management. We help businesses build strong brand identities, increase visibility, and achieve sustainable growth through creative and result-driven solutions.
             </p>
             <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-              <button className="bg-gold text-[#0B0B0B] px-10 py-5 font-bold uppercase text-sm tracking-widest transition-all hover:scale-105">
+              <button onClick={() => onNavigate?.('contact')} className="bg-gold text-[#0B0B0B] px-10 py-5 font-bold uppercase text-sm tracking-widest transition-all hover:scale-105">
                 Start Your Project
               </button>
-              <button className="border border-white/20 text-white px-10 py-5 font-bold uppercase text-sm tracking-widest transition-all hover:bg-white/5">
-                View Showreel
-              </button>
+              <a href="https://media7news.com/" target="_blank" rel="noopener noreferrer" className="border border-white/20 text-white px-10 py-5 font-bold uppercase text-sm tracking-widest transition-all hover:bg-white/5 inline-block">
+                View Our News Portal
+              </a>
             </div>
           </div>
         </section>
@@ -74,10 +76,10 @@ export default function Home({ onNavigate }) {
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div className="max-w-xl">
               <span className="font-label-sm text-gold tracking-[0.2em] uppercase block mb-4">Our Expertise</span>
-              <h2 className="font-headline-lg">Strategic solutions for ambitious brands.</h2>
+              <h2 className="font-headline-lg">Strategic solutions designed to help businesses build strong brands</h2>
             </div>
             <p className="font-body-md text-on-surface-variant max-w-xs border-l border-gold/30 pl-6">
-              A curated suite of services designed to elevate and protect your prestige in a crowded market.
+              A comprehensive range of media and marketing services tailored to enhance your brand visibility, engagement, and market presence.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -86,33 +88,66 @@ export default function Home({ onNavigate }) {
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">workspace_premium</span>
               <h3 className="font-headline-md mb-4">Branding</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
-                Developing cohesive visual and narrative identities that resonate with sophistication and authority.
+                Developing memorable brand identities through strategic design, storytelling, and creative solutions that establish trust and recognition.
               </p>
-              <a className="text-gold font-label-sm flex items-center gap-2 group" href="#">
+              <button onClick={() => onNavigate?.('services')} className="text-gold font-label-sm flex items-center gap-2 group">
                 EXPLORE SERVICE <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
+              </button>
             </div>
             {/* Service 2 */}
             <div className="luxury-card p-10 flex flex-col h-full">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">play_circle</span>
-              <h3 className="font-headline-md mb-4">Media</h3>
+              <h3 className="font-headline-md mb-4">Media Production</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
-                High-impact content production and distribution strategies tailored for premium global audiences.
+                Creating high-quality videos, creative content, and media campaigns that engage audiences and communicate your brand message effectively.
               </p>
-              <a className="text-gold font-label-sm flex items-center gap-2 group" href="#">
+              <button onClick={() => onNavigate?.('services')} className="text-gold font-label-sm flex items-center gap-2 group">
                 EXPLORE SERVICE <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
+              </button>
             </div>
             {/* Service 3 */}
             <div className="luxury-card p-10 flex flex-col h-full">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">event_seat</span>
               <h3 className="font-headline-md mb-4">Event Management</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
-                Executing exclusive corporate and luxury events with meticulous attention to detail and atmosphere.
+                Planning and executing corporate events, brand activations, product launches, and promotional campaigns with professional precision.
               </p>
-              <a className="text-gold font-label-sm flex items-center gap-2 group" href="#">
+              <button onClick={() => onNavigate?.('services')} className="text-gold font-label-sm flex items-center gap-2 group">
                 EXPLORE SERVICE <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-              </a>
+              </button>
+            </div>
+              {/* Service 4 */}
+            <div className="luxury-card p-10 flex flex-col h-full">
+              <span className="material-symbols-outlined text-gold mb-8 text-4xl">campaign</span>
+              <h3 className="font-headline-md mb-4">Digital Marketing</h3>
+              <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
+                Driving business growth through social media marketing, SEO, content marketing, and data-driven digital strategies.
+              </p>
+              <button onClick={() => onNavigate?.('services')} className="text-gold font-label-sm flex items-center gap-2 group">
+                EXPLORE SERVICE <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
+            </div>
+            {/* Service 5 */}
+            <div className="luxury-card p-10 flex flex-col h-full">
+              <span className="material-symbols-outlined text-gold mb-8 text-4xl">ads_click</span>
+              <h3 className="font-headline-md mb-4">Advertising</h3>
+              <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
+                Delivering impactful advertising campaigns that maximize reach, engagement, and brand awareness across multiple platforms.
+              </p>
+              <button onClick={() => onNavigate?.('services')} className="text-gold font-label-sm flex items-center gap-2 group">
+                EXPLORE SERVICE <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
+            </div>
+              {/* Service 6 */}
+            <div className="luxury-card p-10 flex flex-col h-full">
+              <span className="material-symbols-outlined text-gold mb-8 text-4xl">rocket_launch</span>
+              <h3 className="font-headline-md mb-4">Business Promotions</h3>
+              <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
+                 Helping businesses increase visibility and attract customers through innovative promotional activities and strategic marketing initiatives.
+              </p>
+              <button onClick={() => onNavigate?.('services')} className="text-gold font-label-sm flex items-center gap-2 group">
+                EXPLORE SERVICE <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </button>
             </div>
           </div>
         </section>
@@ -124,24 +159,24 @@ export default function Home({ onNavigate }) {
               <div className="aspect-[4/5] relative z-10">
                 <img
                   className="w-full h-full object-cover"
-                  alt="A portrait of a visionary creative director in a sharp black suit, silhouetted against a large arched window overlooking a modern city skyline at dusk."
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGPymucF-qlBtgx0muK-eBpxlWyfEjm0DQZybtRsrSj8I5gRxhp7qcFfFfPEU-ekZaRpwNlujQauwGqsK_CKQQsu-LJrPx_3wwxgcO2VogRCAVVZEaeLV7-gPhpkfOIYQ7Y3AaB1T_po8-89PsvOGrw3x-L60xcQQo1zs5lqdd09uj4Fg54T3nNIiqK19BUa1RWWqA5GTd73CXb-lNqHlChiWb1HQEH6MEutQzvK1cRFz7-4e_23UBp4IxxgS-koL4_MqZVYOp8sI"
+                  alt="Media7 Studio"
+                  src="/home_section_1.png"
                 />
               </div>
               <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-gold flex items-center justify-center p-8 z-20">
-                <span className="text-[#0B0B0B] font-display-xl leading-none">10</span>
+                <span className="text-[#0B0B0B] font-display-xl leading-none">11</span>
                 <span className="text-[#0B0B0B] font-bold text-xs uppercase tracking-tighter -rotate-90">Years of Excellence</span>
               </div>
             </div>
             <div>
-              <span className="font-label-sm text-gold tracking-[0.2em] uppercase block mb-4">The Legacy</span>
-              <h2 className="font-headline-lg mb-8">Redefining the standards of modern excellence.</h2>
+              <span className="font-label-sm text-gold tracking-[0.2em] uppercase block mb-4">The Media7 Story</span>
+              <h2 className="font-headline-lg mb-8">Empowering brands through creativity, strategy, and innovation.</h2>
               <div className="space-y-6 text-on-surface-variant font-body-md">
-                <p>Founded on the principle that luxury is a language of silence and precision, Media7 has spent a decade curating the world&apos;s most influential narratives.</p>
-                <p>Our approach is not about volume; it&apos;s about the weight of each decision. We partner with visionaries to create enduring value in a transient world.</p>
+                <p>Media7 Kochi was founded with a vision to help businesses build meaningful connections with their audiences through impactful media and marketing solutions. By combining creativity, technology, and strategic thinking, we create powerful brand experiences that drive engagement and business growth.</p>
+                <p>Our approach is centered on understanding each client's unique goals and delivering customized solutions that generate measurable results. From branding and digital marketing to video production, advertising, and event management, we partner with businesses to strengthen their presence and achieve lasting success.</p>
               </div>
               <button className="mt-12 border-b-2 border-gold pb-2 text-gold font-bold uppercase tracking-widest hover:text-white hover:border-white transition-all">
-                Discover Our Philosophy
+                Discover Our Services
               </button>
             </div>
           </div>
@@ -151,65 +186,27 @@ export default function Home({ onNavigate }) {
         <section className="py-section-gap max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <span className="font-label-sm text-gold tracking-[0.2em] uppercase block mb-4">Portfolio</span>
-            <h2 className="font-headline-lg">Selected works for global leaders.</h2>
+            <h2 className="font-headline-lg">Showcasing creativity, innovation, and impactful brand experiences.</h2>
           </div>
           <div className="grid grid-cols-12 gap-6 auto-rows-[300px]">
-            {/* Case 1 */}
-            <div className="col-span-12 md:col-span-8 relative group overflow-hidden">
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt="A high-end architectural visualization of a futuristic skyscraper project at night."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_8cvOiNyR1JPriQr-o6EBXoL7HzPTQMOZ9bfC6HkO_G3VfvAVZIvMNXEmupqOIZwKJLIs5Ciz0CBXY8mwrMhXLTL3C-Om9joboydDgBbES2SDxpWAimePhJyNu4v7wpZk8iB5CWTpp1g1TgNWpV_ubEd9jzSFy1QMse-C3snx1Ght7QpBtfoKnzGMpuVCMHyHNne_jB3CejS7JQM8MYQFtcP3Owe5VH3RYE76BB7ksO1h_5hk2_uf9EpUDC7WBE2aLsQmlYuwFD4"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
-                <div>
-                  <span className="font-label-sm text-gold uppercase mb-2 block">Branding &amp; Media</span>
-                  <h3 className="font-headline-md text-white">The Onyx Residences</h3>
+            {projects.slice(0, 4).map((project, i) => {
+              const isLarge = i === 0 || i === 3
+              return (
+                <div key={project.id} className={`col-span-12 ${isLarge ? 'md:col-span-8' : 'md:col-span-4'} relative group overflow-hidden`}>
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    alt={project.alt}
+                    src={project.img}
+                  />
+                  <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
+                    <div>
+                      <span className="font-label-sm text-gold uppercase mb-2 block">{project.category}</span>
+                      <h3 className="font-headline-md text-white">{project.title}</h3>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            {/* Case 2 */}
-            <div className="col-span-12 md:col-span-4 relative group overflow-hidden">
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt="An abstract, high-fashion close-up of premium watch mechanics."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSUIijkKixb9yXDhps4l8_u8uaAd-KJvTsSDdzfaUpmtrZ9a1Nizao3B_cgG9rGHDyxZgXaB5Ka2HB4ipiOXJAKort_EUCLypUTOVFiRoEMbiF-sZUp28mz_NwuE75beBGjGIiqUj5_TYwXForxdI7zOHRu9czrP7eeV8KXMKl0xADb1ittJIV2_8DALuw7hDUictLSOMHizXr_vlhQrTskStNacSPqIJ_THHNIiiTD-Ab0QQpq9DXGAlfmI3Z1qcvKjB5gYlgZlA"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
-                <div>
-                  <span className="font-label-sm text-gold uppercase mb-2 block">Event Management</span>
-                  <h3 className="font-headline-md text-white">Chronos Gala</h3>
-                </div>
-              </div>
-            </div>
-            {/* Case 3 */}
-            <div className="col-span-12 md:col-span-4 relative group overflow-hidden">
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt="A minimalist, top-down photograph of a bespoke leather-bound brand manual."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiiUaD-Y76QbrCx67WDH0JLOFv12eNAgCqGCGjMMCs_Z9cyndCejakaTCkliDvwFyWtVSCkBUp-32YPFJ6vz5ZM2lqVt9nadndydJjJypiQCLRiUEacTyY099NyKGiSz-hJ5j186qqENSxO4QxMiMt43ElRK4h4y6OlPTJYq4c-BVfZiXE6QWalsLDgz3J3nis-ugXXTyP8UkLHEq4Jq4rF372sf404Mo4Ysu9GP-zM3pCm5IQk-J_t-Kx8-7uqdxUaeGCYxNxsfg"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
-                <div>
-                  <span className="font-label-sm text-gold uppercase mb-2 block">Identity Design</span>
-                  <h3 className="font-headline-md text-white">Nordic Capital</h3>
-                </div>
-              </div>
-            </div>
-            {/* Case 4 */}
-            <div className="col-span-12 md:col-span-8 relative group overflow-hidden">
-              <img
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                alt="A wide, sweeping shot of a private jet terminal lounge with high-end furniture."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFKw3_fJonLfrvsod7erNQ0q6fieBAGNRIs5tFF-DYY4IoW8Jbty8DZG04scA96lPSXRJcfjkPUthpcOX0GnRJ0mkKtpO0tV8NqUPjiidv_GGNNfNH2Xbb1Nm0oHp_CF4svYw7OjGXuoBaVDiUGbF0EQ-ZwxDA9B7Jdr_O9hnR6MTnHu2U8Upew4lEsRCQSYEnuqaS6iFFqJWTApq9tDS1VWz8PBmr7R4Vl8zU5foWoPaf3WizhG6SLJMxuIOVeRMQ-2npdoGV3Gg"
-              />
-              <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-10">
-                <div>
-                  <span className="font-label-sm text-gold uppercase mb-2 block">Media Strategy</span>
-                  <h3 className="font-headline-md text-white">Aero Elite</h3>
-                </div>
-              </div>
-            </div>
+              )
+            })}
           </div>
         </section>
 
@@ -217,30 +214,22 @@ export default function Home({ onNavigate }) {
         <section className="py-section-gap bg-[#1A1A1A]">
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="material-symbols-outlined text-gold text-6xl mb-8">format_quote</span>
+              <span className="material-symbols-outlined text-gold text-6xl mb-8">MEDIA 7</span>
               <p className="font-headline-md italic mb-10 text-on-surface">
-                &quot;Media7 didn&apos;t just understand our brand; they elevated it to a level we didn&apos;t think possible. Their attention to the nuances of luxury is unparalleled in the industry.&quot;
+                &quot;At Media7, we believe every brand has a story worth telling. Our mission is to create impactful content, innovative marketing strategies, and memorable brand experiences that help businesses connect with their audiences and achieve meaningful growth. We combine creativity, technology, and strategic thinking to deliver results that make a lasting impact.&quot;
               </p>
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 bg-zinc-800 rounded-full overflow-hidden">
+              <div className="flex flex-col items-center gap-4">
+                <div className="w-44 h-44 bg-zinc-800 rounded-full overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
-                    alt="A sophisticated headshot of a female executive with a confident smile."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7SR0VyBC75XS0fjA0TB1Y5naJQ8_E6f2bTdgdbuqBGmCF9-ERHAewJtpsgGkfn_FgqmeuTAOpQ4XcJqO1VfkDg8tP4HckyIzrOiGyjZoyeaDOLDBQ3rAXkWWwYIlD83rm1O7uc2drGojdI7R4LqZVeNbv_1HOU8SGv7GUVauRLQBT4DRvNb8_1YvAk9eC-7Q11u81768_jfioKo3-ojmoOHIOiQ2Rc6B-tKRnkRgYSLiQA8G5EYA2vNm_sXP2pl5DVrDd0toFN-Q"
+                    alt="CEO of Media7"
+                    src="/CEO_of_Media7.png"
                   />
                 </div>
-                <div className="text-left">
-                  <p className="font-bold text-on-surface">Alexandra Vance</p>
-                  <p className="text-gold text-xs uppercase tracking-widest font-label-sm">CEO, Vance Global</p>
+                <div className="text-center">
+                  <p className="font-bold text-on-surface">Shanty Thomas</p>
+                  <p className="text-gold text-xs uppercase tracking-widest font-label-sm">CEO, Media7 Kochi</p>
                 </div>
-              </div>
-              <div className="flex justify-center gap-4 mt-12">
-                <button className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-gold transition-colors">
-                  <span className="material-symbols-outlined text-sm">chevron_left</span>
-                </button>
-                <button className="w-10 h-10 border border-white/10 flex items-center justify-center hover:border-gold transition-colors">
-                  <span className="material-symbols-outlined text-sm">chevron_right</span>
-                </button>
               </div>
             </div>
           </div>
@@ -302,7 +291,7 @@ export default function Home({ onNavigate }) {
             <p className="font-body-lg text-[#0B0B0B]/80 max-w-2xl mx-auto mb-12">
               Partner with an agency that understands the gravity of your ambition. Let&apos;s discuss your next milestone.
             </p>
-            <button className="bg-[#0B0B0B] text-white px-12 py-6 font-bold uppercase text-sm tracking-widest transition-all hover:scale-105 active:scale-95">
+            <button onClick={() => onNavigate?.('contact')} className="bg-[#0B0B0B] text-white px-12 py-6 font-bold uppercase text-sm tracking-widest transition-all hover:scale-105 active:scale-95">
               Schedule a Consultation
             </button>
           </div>

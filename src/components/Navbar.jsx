@@ -19,6 +19,12 @@ export default function Navbar({ onNavigate, currentPage }) {
           >
             {mobileOpen ? 'close' : 'menu'}
           </span>
+          <img
+            src="/logo2.png"
+            alt="Media7"
+            className="h-8 w-auto cursor-pointer"
+            onClick={() => handleNav('home')}
+          />
           <span
             className="text-xl font-black tracking-widest text-[#F5C542] uppercase font-headline-lg cursor-pointer"
             onClick={() => handleNav('home')}
