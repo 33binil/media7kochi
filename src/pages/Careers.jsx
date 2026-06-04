@@ -16,8 +16,8 @@ export default function Careers({ onNavigate }) {
           </div>
           <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
             <span className="font-label-sm text-primary-container mb-4 block">JOIN OUR TEAM</span>
-            <h1 className="font-display-xl text-on-surface mb-6">Shape the Future of Media.</h1>
-            <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">We are looking for visionary creators, strategic thinkers, and technical pioneers to join our exclusive collective of industry leaders.</p>
+            <h1 className="font-display-xl text-on-surface mb-6">Create. Innovate. Inspire.</h1>
+            <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">At Media7, we're always looking for passionate creatives, innovative marketers, talented storytellers, and ambitious professionals who are ready to make an impact. Join our team and collaborate on exciting projects in branding, media production, digital marketing, advertising, and events.</p>
           </div>
         </section>
 
@@ -80,19 +80,19 @@ export default function Careers({ onNavigate }) {
           </div>
         </section>
 
-        {/* Culture Bento Grid */}
+      
         <section className="bg-surface-container-low py-section-gap">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-headline-lg text-on-surface">The Media7 Experience</h2>
-              <p className="text-on-surface-variant font-body-lg max-w-2xl mx-auto mt-4">We foster an environment where excellence is the standard and innovation is the currency.</p>
+              <p className="text-on-surface-variant font-body-lg max-w-2xl mx-auto mt-4">Where Creativity Meets Innovation. <br/> At Media7, we foster a culture of collaboration, creativity, and continuous growth. Our team thrives in an environment that encourages bold ideas, strategic thinking, and a passion for delivering exceptional results.</p>
             </div>
             <div className="grid grid-cols-12 gap-6 h-[700px]">
               <div className="col-span-8 relative group overflow-hidden">
                 <img
-                  alt="Team collaboration"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5idSaOZFbtU7fCsdth_u-rlWUHBkr6tZz1eTnWyevBNoe14y870RLzs9Tvz-UnkovUFH3iCM9yiW44rjn5lUVburPenYWsxrU91nFc-eJuLqeh2GU0DJMfqC3PhZrpAjPL2Xw1K1jnOQ41uMFMZSnbvfN5EKxebkieW7fLEDSAz7ff2LO6tNdVK8Ghvgwqz0WoT3ZeO9Q6CJ5vHxnLfkgksCocAe_U9fKUqtmjVeEaxmjQMRrUXWYupylyUuljxr9BJq5-C0gRKM"
+                  alt="Office"
+                  className="w-full h-full object-cover transition-all duration-700"
+                  src="/office.png"
                 />
                 <div className="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black/80 to-transparent w-full">
                   <p className="font-headline-md text-white">Collaborative Excellence</p>

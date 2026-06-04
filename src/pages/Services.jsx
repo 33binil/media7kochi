@@ -27,21 +27,21 @@ export default function Services({ onNavigate }) {
             {/* Branding & Marketing */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">01. Identity</span>
-                <h2 className="font-headline-lg text-on-background mb-8">Branding &amp; Marketing</h2>
-                <p className="font-body-lg text-on-surface-variant mb-8">We construct powerful brand identities that resonate with authority. Our approach combines data-driven insights with avant-garde creative direction to position your brand at the pinnacle of your industry.</p>
+                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">01. Branding & Advertising</span>
+                <h2 className="font-headline-lg text-on-background mb-8">Building Brands That Stand Out</h2>
+                <p className="font-body-lg text-on-surface-variant mb-8">We help businesses create strong, memorable brand identities and strategic advertising campaigns that capture attention, build trust, and drive growth. Our creative approach combines storytelling, design, and market insights to position your brand for long-term success.</p>
                 <ul className="space-y-4 mb-10">
                   <li className="flex items-center gap-3 font-body-md text-on-surface">
                     <span className="material-symbols-outlined text-primary-container">check_circle</span>
-                    Visual Identity &amp; Logo Architecture
+                    Brand Identity & Logo Design
                   </li>
                   <li className="flex items-center gap-3 font-body-md text-on-surface">
                     <span className="material-symbols-outlined text-primary-container">check_circle</span>
-                    Strategic Market Positioning
+                    Creative Advertising Campaigns
                   </li>
                   <li className="flex items-center gap-3 font-body-md text-on-surface">
                     <span className="material-symbols-outlined text-primary-container">check_circle</span>
-                    Omni-channel Growth Marketing
+                    Strategic Brand Positioning
                   </li>
                 </ul>
                 <button className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">Explore Branding</button>
@@ -50,8 +50,8 @@ export default function Services({ onNavigate }) {
                 <div className="aspect-[4/5] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-                    alt="A minimalist brand board displaying premium textures, a golden logo, and elegant typography."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCJ78_5WkxI47H9zEZs5oWAbrsVil6SfofwnK9XHbqOLSmdu8y4NOxNVqynIGhyarvSUyJU5bKrefABVfq8upZVSXWLvD3K3a1cYh9E4ZlWUiTzQkAXpiSH2tJrzJt-eLkbaPOwSfN7d5uKynRESf3abi_GfzEnto-wEhriM_war7KFajTuJt-nG4I5R5jvcMx35B_fUsq4r66iZ90TY0GFFKD4Gz-q8povOW7J6xk10V1P4KiyJ9avaUkHm_E7dNBQUm1GOfC8UQ"
+                    alt="Branding and Advertising"
+                    src="/service1.png"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
@@ -64,21 +64,26 @@ export default function Services({ onNavigate }) {
                 <div className="aspect-[16/9] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-                    alt="A professional film set in a darkened studio with a high-end cinema camera."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz-0RaQa1WMW2Kjs3AJYE59-T50QjsCnP_7i2q52YRAL7CSBFd_k5ehLVab1xY6lUsETDT45tXwIagzlXve67_LQnHury2gGdG14T_juGRQWbAE9gy7Ay2fvXNVkq8JaezC2tpLEtdfWygXSifbNBgFmc6AcZDp52AOZZ1Kv-FO1hOXtIqHZ__tHeVl56mE6-ym7o5iUPwISMi4l0xb13-LaKzFA5EhFbNRaaMemhBfYpIUvm5GJoHCzJeN2omnsqjynw0hc5Z2r4"
+                    alt="Media Production"
+                    src="/service2.png"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
               </div>
               <div className="pl-0 lg:pl-12">
-                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">02. Visuals</span>
-                <h2 className="font-headline-lg text-on-background mb-8">Media Solutions</h2>
-                <p className="font-body-lg text-on-surface-variant mb-8">Capturing the essence of excellence through high-fidelity media. From cinematic commercial production to corporate documentaries, we tell stories that demand attention and inspire action.</p>
+                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">02. Media Production</span>
+                <h2 className="font-headline-lg text-on-background mb-8">Ad Films & Corporate Videos</h2>
+                <p className="font-body-lg text-on-surface-variant mb-8">We create compelling visual stories that captivate audiences and communicate your brand message with clarity, creativity, and impact. From concept development to final production, we deliver content that leaves a lasting impression.</p>
                 <div className="grid grid-cols-2 gap-6 mb-10">
                   <div className="p-6 bg-[#1A1A1A] border border-white/5">
                     <span className="material-symbols-outlined text-primary-container text-3xl mb-4">videocam</span>
-                    <h4 className="font-headline-md text-lg mb-2">Cinematography</h4>
-                    <p className="text-sm text-on-surface-variant">4K Narrative Production</p>
+                    <h4 className="font-headline-md text-lg mb-2">Ad Film Production</h4>
+                    <p className="text-sm text-on-surface-variant">Instagram, YouTube and Other Platforms Ads</p>
+                  </div>
+                  <div className="p-6 bg-[#1A1A1A] border border-white/5">
+                    <span className="material-symbols-outlined text-primary-container text-3xl mb-4">photo_camera</span>
+                    <h4 className="font-headline-md text-lg mb-2">Corporate Videos & Documentaries</h4>
+                    <p className="text-sm text-on-surface-variant">Brand Films, Short Movies, Documentaries, Social Media Content</p>
                   </div>
                   <div className="p-6 bg-[#1A1A1A] border border-white/5">
                     <span className="material-symbols-outlined text-primary-container text-3xl mb-4">photo_camera</span>
@@ -90,25 +95,32 @@ export default function Services({ onNavigate }) {
               </div>
             </div>
 
-            {/* Event Management */}
+            {/* Digital Marketing */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">03. Experience</span>
-                <h2 className="font-headline-lg text-on-background mb-8">Event Management</h2>
-                <p className="font-body-lg text-on-surface-variant mb-8">We curate bespoke events that serve as unforgettable brand touchpoints. Our team handles every detail from logistical precision to atmospheric design, ensuring a seamless and high-status experience.</p>
+                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">03. Digital Marketing</span>
+                <h2 className="font-headline-lg text-on-background mb-8">Growth Through Strategy</h2>
+                <p className="font-body-lg text-on-surface-variant mb-8">Our digital marketing solutions combine creativity, analytics, and technology to help brands reach the right audience, generate engagement, and achieve measurable business growth.</p>
                 <div className="space-y-6">
                   <div className="flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">1</div>
                     <div>
-                      <h4 className="font-bold text-on-background">Corporate Galas</h4>
-                      <p className="text-on-surface-variant">Elegant executive gatherings designed for networking.</p>
+                      <h4 className="font-bold text-on-background">Social Media Marketing</h4>
+                      <p className="text-on-surface-variant">Building brand awareness and audience engagement through strategic content and platform management.</p>
                     </div>
                   </div>
                   <div className="flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">2</div>
                     <div>
-                      <h4 className="font-bold text-on-background">Product Launches</h4>
-                      <p className="text-on-surface-variant">Immersive showcases that generate global hype.</p>
+                      <h4 className="font-bold text-on-background">SEO & Search Visibility</h4>
+                      <p className="text-on-surface-variant">Optimizing your digital presence to improve search rankings, organic traffic, and online discoverability.</p>
+                    </div>
+                  </div>
+                  <div className="flex gap-6 items-start">
+                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">3</div>
+                    <div>
+                      <h4 className="font-bold text-on-background">Targeted Ad Campaigns</h4>
+                      <p className="text-on-surface-variant">Running focused advertising campaigns across platforms to reach specific demographics and drive conversions.</p>
                     </div>
                   </div>
                 </div>
@@ -117,11 +129,45 @@ export default function Services({ onNavigate }) {
                 <div className="aspect-[4/3] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
-                    alt="An expansive view of a luxury event hall prepared for a black-tie gala."
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBACXRsZsBUr_eQfOTmGScu1-9b_7yIZGtqQQ4sTEeV8E5nHQzut26ROdAVNvUQw5HZGqFbQ2ej6G-Fuc12JXZTRaC2-Qzev_Np8qstb9FlWxBzNJ7-X8Fr0U19eoyviohChfwuLdStu9VlKa4fQwg1M9nGId3tbiMwOZ68TBmwVChON7Fq8-jzheu71YRtoWms8ykJu2PeDSdjvE2ab9C2XGztAE-KJaS35xDtY4c43tNPYFTvhMyaKtRv6RC__Qx4wAughQ2Mt6o"
+                    alt="Digital Marketing"
+                    src="/service3.png"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
+              </div>
+            </div>
+
+            {/* Events & Experiences */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <div className="aspect-[4/5] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
+                    alt="Events and Experiences"
+                    src="/service4.png"
+                  />
+                  <div className="absolute inset-0 border border-white/5 pointer-events-none" />
+                </div>
+              </div>
+              <div>
+                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">04. Events &amp; Experiences</span>
+                <h2 className="font-headline-lg text-on-background mb-8">Creating Memorable Moments</h2>
+                <p className="font-body-lg text-on-surface-variant mb-8">We plan and execute impactful events that strengthen brand presence, engage audiences, and deliver unforgettable experiences. From corporate gatherings to large-scale brand activations, every detail is managed with precision.</p>
+                <ul className="space-y-4 mb-10">
+                  <li className="flex items-center gap-3 font-body-md text-on-surface">
+                    <span className="material-symbols-outlined text-primary-container">check_circle</span>
+                    Corporate Events
+                  </li>
+                  <li className="flex items-center gap-3 font-body-md text-on-surface">
+                    <span className="material-symbols-outlined text-primary-container">check_circle</span>
+                    Brand Activations
+                  </li>
+                  <li className="flex items-center gap-3 font-body-md text-on-surface">
+                    <span className="material-symbols-outlined text-primary-container">check_circle</span>
+                    Event Planning &amp; Management
+                  </li>
+                </ul>
+                <button className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">Explore Events</button>
               </div>
             </div>
           </div>
@@ -131,8 +177,8 @@ export default function Services({ onNavigate }) {
         <section className="py-section-gap bg-[#111111] border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
-              <h2 className="font-headline-lg text-on-background mb-4">From Vision to Victory</h2>
-              <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Our proven methodology ensures that every project reaches its maximum potential through a structured, elite workflow.</p>
+              <h2 className="font-headline-lg text-on-background mb-4">From Idea to Impact</h2>
+              <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">Our streamlined creative process ensures every project is executed with strategy, precision, and measurable results.</p>
             </div>
             <div className="relative">
               <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -translate-y-1/2 hidden md:block" />
@@ -143,8 +189,8 @@ export default function Services({ onNavigate }) {
                     <span className="material-symbols-outlined text-black text-3xl">lightbulb</span>
                   </div>
                   <span className="font-label-sm text-primary-container mb-2 block">Phase 01</span>
-                  <h3 className="font-headline-md text-xl mb-4">Discovery</h3>
-                  <p className="text-sm text-on-surface-variant">We dive deep into your brand DNA, identifying core values and market opportunities.</p>
+                  <h3 className="font-headline-md text-xl mb-4">Discovery & Strategy</h3>
+                  <p className="text-sm text-on-surface-variant">We understand your brand, objectives, audience, and market landscape to create a strong foundation for success.</p>
                 </div>
                 {/* Step 2 */}
                 <div className="bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
@@ -152,8 +198,8 @@ export default function Services({ onNavigate }) {
                     <span className="material-symbols-outlined text-black text-3xl">architecture</span>
                   </div>
                   <span className="font-label-sm text-primary-container mb-2 block">Phase 02</span>
-                  <h3 className="font-headline-md text-xl mb-4">Architecture</h3>
-                  <p className="text-sm text-on-surface-variant">Designing the blueprint for success across creative and logistical touchpoints.</p>
+                  <h3 className="font-headline-md text-xl mb-4">Planning & Concept Development</h3>
+                  <p className="text-sm text-on-surface-variant">Our team develops creative concepts, campaign strategies, and content plans tailored to your business goals.</p>
                 </div>
                 {/* Step 3 */}
                 <div className="bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
@@ -161,8 +207,8 @@ export default function Services({ onNavigate }) {
                     <span className="material-symbols-outlined text-black text-3xl">brush</span>
                   </div>
                   <span className="font-label-sm text-primary-container mb-2 block">Phase 03</span>
-                  <h3 className="font-headline-md text-xl mb-4">Execution</h3>
-                  <p className="text-sm text-on-surface-variant">Precision implementation of strategy and creative assets by our master artisans.</p>
+                  <h3 className="font-headline-md text-xl mb-4">Production & Execution</h3>
+                  <p className="text-sm text-on-surface-variant">From branding and video production to digital marketing and events, we bring ideas to life with creativity and precision.</p>
                 </div>
                 {/* Step 4 */}
                 <div className="bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
@@ -170,8 +216,8 @@ export default function Services({ onNavigate }) {
                     <span className="material-symbols-outlined text-black text-3xl">trophy</span>
                   </div>
                   <span className="font-label-sm text-primary-container mb-2 block">Phase 04</span>
-                  <h3 className="font-headline-md text-xl mb-4">Victory</h3>
-                  <p className="text-sm text-on-surface-variant">Analysis, refinement, and celebration of measurable brand growth and impact.</p>
+                  <h3 className="font-headline-md text-xl mb-4">Growth & Optimization</h3>
+                  <p className="text-sm text-on-surface-variant">We monitor performance, analyze results, and continuously optimize strategies to maximize engagement, visibility, and business growth.</p>
                 </div>
               </div>
             </div>

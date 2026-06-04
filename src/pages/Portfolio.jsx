@@ -10,8 +10,8 @@ const Portfolio = ({ onNavigate }) => {
       <main className="pb-section-gap">
         {/* Hero Title */}
         <section className="max-w-7xl mx-auto px-6 mb-stack-lg">
-          <h1 className="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">The Curated Gallery</h1>
-          <p className="text-on-surface-variant max-w-2xl font-body-lg text-body-lg">A chronicle of strategic execution and artistic vision. Our selected works represent the pinnacle of luxury media production and corporate branding.</p>
+          <h1 className="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">The Creative Showcase</h1>
+          <p className="text-on-surface-variant max-w-2xl font-body-lg text-body-lg">A collection of our finest work in branding, advertising, media production, digital marketing, and event management. Every project reflects our passion for creativity, strategic thinking, and delivering meaningful results for our clients.</p>
         </section>
 
         {/* Filters */}

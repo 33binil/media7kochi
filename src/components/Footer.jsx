@@ -5,7 +5,7 @@ export default function Footer({ onNavigate }) {
         <div className="col-span-1 md:col-span-1">
           <span className="text-lg font-bold text-[#F5C542] mb-6 block">Media7</span>
           <p className="font-manrope text-sm text-zinc-500 max-w-xs">
-            Redefining excellence in media, branding, and luxury strategy for the world&apos;s most ambitious leaders.
+            Redefining excellence in branding, media production, digital marketing, and creative storytelling for ambitious brands and growing businesses.
           </p>
         </div>
         <div>

@@ -15,11 +15,11 @@ export default function About({ onNavigate }) {
             <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(11,11,11,0) 0%, rgba(11,11,11,1) 100%)' }} />
           </div>
           <div className="relative z-10 text-center px-6">
-            <span className="font-label-sm text-primary-container uppercase tracking-[0.3em] mb-4 block">Est. 1998</span>
+            <span className="font-label-sm text-primary-container uppercase tracking-[0.3em] mb-4 block">Est. 2017</span>
             <h1 className="font-display-xl text-on-surface mb-6">
-              Crafting Digital <br />Prestige
+              Crafting Powerful <br />Brand Stories
             </h1>
-            <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">We don&apos;t just create media; we curate legacies for brands that demand nothing short of absolute excellence.</p>
+            <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">We don't just create content; we build meaningful brand experiences through creativity, strategy, and innovation. From branding and advertising to digital marketing and media production, we help businesses connect, engage, and grow.</p>
           </div>
         </section>
 
@@ -27,35 +27,35 @@ export default function About({ onNavigate }) {
         <section className="py-section-gap max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start">
             <div className="space-y-stack-lg">
-              <h2 className="font-headline-lg text-on-surface">Our Legacy</h2>
+              <h2 className="font-headline-lg text-on-surface">Our Story</h2>
               <div className="w-20 h-1 bg-primary-container" />
               <p className="font-body-lg text-on-surface-variant leading-relaxed">
-                Born in the heart of the digital revolution, Media7 began as a small collective of visionaries who believed that technology and art should never be mutually exclusive. Over two decades, we have evolved into a global authority on high-end digital experiences.
+                Established in 2017 in the UAE, Media7 was founded with a vision to create meaningful connections between brands and their audiences through powerful storytelling, creative innovation, and strategic communication. With over 7 years of experience across the GCC and India, we have grown into a trusted 360° creative agency delivering impactful media and marketing solutions.
               </p>
               <p className="font-body-lg text-on-surface-variant leading-relaxed">
-                Our journey is defined by a relentless pursuit of perfection. From pioneering early web standards to defining modern luxury branding, our legacy is etched in the success of the world&apos;s most influential entities.
+                Our journey is driven by passion, creativity, and a commitment to excellence. From branding and advertising to ad film production, digital marketing, corporate videos, and event management, we help businesses transform ideas into memorable brand experiences that inspire, engage, and deliver results.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-lg bg-surface-container-low p-10 border border-white/5">
               <div className="space-y-stack-sm">
                 <span className="material-symbols-outlined text-[#F5C542] text-4xl">verified</span>
                 <h3 className="font-headline-md text-on-surface text-xl">Integrity</h3>
-                <p className="font-body-md text-on-surface-variant">Uncompromising standards in every pixel and every strategy we deliver.</p>
+                <p className="font-body-md text-on-surface-variant">Building trust through transparency, professionalism, and a commitment to delivering quality in every project.</p>
               </div>
               <div className="space-y-stack-sm">
                 <span className="material-symbols-outlined text-[#F5C542] text-4xl">auto_awesome</span>
-                <h3 className="font-headline-md text-on-surface text-xl">Innovation</h3>
-                <p className="font-body-md text-on-surface-variant">Leading the curve through bespoke technological solutions and creative audacity.</p>
+                <h3 className="font-headline-md text-on-surface text-xl">Creativity</h3>
+                <p className="font-body-md text-on-surface-variant">Combining innovative ideas, compelling storytelling, and bold design to create unforgettable brand experiences.</p>
               </div>
               <div className="space-y-stack-sm">
                 <span className="material-symbols-outlined text-[#F5C542] text-4xl">diamond</span>
-                <h3 className="font-headline-md text-on-surface text-xl">Exclusivity</h3>
-                <p className="font-body-md text-on-surface-variant">Tailored experiences designed for a select few who value the extraordinary.</p>
+                <h3 className="font-headline-md text-on-surface text-xl">Impact</h3>
+                <p className="font-body-md text-on-surface-variant">Crafting strategic campaigns and media solutions that drive engagement, visibility, and measurable business growth.</p>
               </div>
               <div className="space-y-stack-sm">
                 <span className="material-symbols-outlined text-[#F5C542] text-4xl">visibility</span>
                 <h3 className="font-headline-md text-on-surface text-xl">Vision</h3>
-                <p className="font-body-md text-on-surface-variant">Anticipating the future of media to keep our partners ahead of the global conversation.</p>
+                <p className="font-body-md text-on-surface-variant">Staying ahead of industry trends and emerging technologies to help brands thrive in an ever-evolving digital world.</p>
               </div>
             </div>
           </div>
@@ -70,7 +70,7 @@ export default function About({ onNavigate }) {
                 <span className="material-symbols-outlined text-[#F5C542] text-5xl">rocket_launch</span>
               </div>
               <p className="font-body-lg text-on-surface leading-relaxed italic border-l-2 border-[#F5C542] pl-6">
-                &quot;To engineer the most prestigious digital ecosystems on the planet, empowering global leaders to communicate with unparalleled clarity and authority.&quot;
+                "To help businesses build powerful brands through creative storytelling, strategic marketing, and innovative media solutions that inspire audiences, drive engagement, and deliver measurable growth."
               </p>
             </div>
             <div className="group bg-[#F5C542] p-12 border border-[#F5C542] transition-all duration-500 hover:bg-[#ffdf95] shadow-2xl hover:-translate-y-2">
@@ -79,7 +79,7 @@ export default function About({ onNavigate }) {
                 <span className="material-symbols-outlined text-5xl">insights</span>
               </div>
               <p className="font-body-lg text-[#0B0B0B] leading-relaxed italic border-l-2 border-[#0B0B0B] pl-6">
-                &quot;To set the definitive standard for the future of executive media, where technology serves as the ultimate canvas for human achievement and brand storytelling.&quot;
+                "To become a leading creative and media agency recognized for transforming ideas into impactful brand experiences, setting new standards in branding, digital marketing, media production, and business communication."
               </p>
             </div>
           </div>
@@ -89,20 +89,20 @@ export default function About({ onNavigate }) {
         <section className="py-section-gap border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
             <div className="space-y-stack-sm">
-              <div className="font-display-xl text-[#F5C542]">25+</div>
-              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Years of Excellence</div>
+              <div className="font-display-xl text-[#F5C542]">7+</div>
+              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Years of Experience</div>
             </div>
             <div className="space-y-stack-sm">
-              <div className="font-display-xl text-[#F5C542]">400</div>
-              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Global Partners</div>
+              <div className="font-display-xl text-[#F5C542]">20+</div>
+              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Projects Delivered</div>
             </div>
             <div className="space-y-stack-sm">
-              <div className="font-display-xl text-[#F5C542]">12</div>
-              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Industry Awards</div>
+              <div className="font-display-xl text-[#F5C542]">20+</div>
+              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Brands Served</div>
             </div>
             <div className="space-y-stack-sm">
-              <div className="font-display-xl text-[#F5C542]">98%</div>
-              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Retention Rate</div>
+              <div className="font-display-xl text-[#F5C542]">100%</div>
+              <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Commitment to Quality</div>
             </div>
           </div>
         </section>
@@ -111,64 +111,64 @@ export default function About({ onNavigate }) {
         <section className="py-section-gap max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-stack-lg">
             <div>
-              <span className="font-label-sm text-primary-container uppercase tracking-[0.3em] mb-4 block">The Architects</span>
-              <h2 className="font-headline-lg text-on-surface">Leadership</h2>
+              <span className="font-label-sm text-primary-container uppercase tracking-[0.3em] mb-4 block">Our Partners</span>
+              <h2 className="font-headline-lg text-on-surface">Building lasting relationships with businesses, brands, <br /> and organizations across industries.</h2>
             </div>
             <p className="font-body-md text-on-surface-variant max-w-md text-right">
-              Directed by a board of seasoned strategists and creative pioneers with a shared obsession for detail.
+              Our partnerships are built on trust, creativity, and a shared commitment to excellence.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
-            {/* Member 1 */}
+            {/* Partner 1 */}
             <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
               <img
-                className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
-                alt="A professional portrait of a senior male executive in a sharp black suit against a dark background."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-IwpdIGYxh6wyR8l7vff5XhYj_yNU1BDZTlVzujHiQEfdvUM93nWKjfcSP8FEoOqP0kiHWKzkHvpVghhLBeBqRzimQhHTZ9vTshEhRU5DQTWczHanM1plrlTc7GVNe7cd76pq0ntazmrJ6IUdfi_wHOKPEFIDBXBBeWFtPrmISsR30de7yQFaS0M9IBzx-ukOiJbuSZUENY3uVPR2W85FH0peOf6vhLi7jVQ_ywijySR2gilnboTowBtGMFLSL44QS6kpn7ML0m4"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                alt="Grace Financials"
+                src="/grace_financials.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />
               <div className="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h4 className="font-headline-md text-xl text-on-surface mb-1">Julian Thorne</h4>
-                <p className="font-label-sm text-primary-container uppercase tracking-widest">Chief Executive Officer</p>
+                <h4 className="font-headline-md text-xl text-on-surface mb-1">Grace Financials</h4>
+                <p className="font-label-sm text-primary-container uppercase tracking-widest">Financial Partner</p>
               </div>
             </div>
-            {/* Member 2 */}
+            {/* Partner 2 */}
             <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
               <img
-                className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
-                alt="A sophisticated portrait of a female creative director in professional attire."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL4j4oy98ltd_ELMGvK45LoDcJ92Bx3-nN7KbO1H9QL81xfbcbtjEKM2L64vosX5hOplNnqkyns6BcpiMdy0gsdD6kba3Fi4fCUmhQTvL2pxL6vDHD_6VLdRs4Bb5Sbb2InjLRBjiVNviYLPR-bh1_sUcHo1dYABregq8d_CyBrvBsRR1eA2-LEvRLCT7cQiLY3VEKeF8rsvVYMGVN_cwst6yBgRDeg0MZffdSPhwUAQw8nuF1PRtM78zn_AtAAh-3ALn0efI2TxE"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                alt="Wild Wind Logo"
+                src="/wild_wind_logo.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />
               <div className="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h4 className="font-headline-md text-xl text-on-surface mb-1">Elena Vance</h4>
-                <p className="font-label-sm text-primary-container uppercase tracking-widest">Creative Director</p>
+                <h4 className="font-headline-md text-xl text-on-surface mb-1">Wild Wind</h4>
+                <p className="font-label-sm text-primary-container uppercase tracking-widest">Touri Partner</p>
               </div>
             </div>
-            {/* Member 3 */}
+            {/* Partner 3 */}
             <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
               <img
-                className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
-                alt="Close-up portrait of a male technology officer with a thoughtful gaze."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEx-VoUEIKiv_-498y3pBCmpX7sEHohqm1AmKXWWcZSskqZBHhUOT0GCrXfMgxbWkZsVb1WBtPLfX8FLe1xtYsFh_FE6SssDytOYoRP48Gr2CKpYwCSekP5intNQTESEJAtNzbbQsjgwpPtzasm-7k754rkJc5gz3tJg0qv7aTV-ZHbByE1GX3Ia_42rFse1XEvNobDYQCRkZqLsXJyr0O7FaZq6VFo7u5WfnQJp6eylvm_eH5Rgs0hPP_3IICtL_dUSV7ldeAlZg"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                alt="Anvi Group of Companies"
+                src="/anvi_group_of_companies_logo.png"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />
               <div className="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h4 className="font-headline-md text-xl text-on-surface mb-1">Marcus Sterling</h4>
-                <p className="font-label-sm text-primary-container uppercase tracking-widest">Head of Innovation</p>
+                <h4 className="font-headline-md text-xl text-on-surface mb-1">Anvi Group</h4>
+                <p className="font-label-sm text-primary-container uppercase tracking-widest">Corporate Partner</p>
               </div>
             </div>
-            {/* Member 4 */}
+            {/* Partner 4 */}
             <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
               <img
-                className="w-full h-full object-cover grayscale contrast-125 transition-all duration-700 group-hover:scale-110 group-hover:grayscale-0"
-                alt="Refined professional headshot of a female strategist in a high-fashion black blazer."
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9QHdJ2x9VSbPjOl2R3k-L38uuz-J5Qw4f_VeWYfyuZ9esxB0vY732Ce81cblZy_L1KvUxsGmOYpNsDwM4Xwrn4JxheV6GdL8xXhEUI1N2rcxn7BSzumppfHuj26bJTBjdGVxBqCm9shTzxXGGMRb2bLMujsk855hyE3Kzfq9hE9_QVgWRfw_8oX8N_wGF121IxoKhgvNrvlodzQqek0M_MPR9aWiRig9uBvJvgghktZWR7Cs8gXyNdlIZJikNfYS6mYM_r9pPmsc"
+                className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                alt="Marina Properties Management"
+                src="/marina_properties_management_logo.jpg"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent opacity-90" />
               <div className="absolute bottom-0 left-0 p-8 w-full translate-y-2 group-hover:translate-y-0 transition-transform">
-                <h4 className="font-headline-md text-xl text-on-surface mb-1">Sienna Blake</h4>
-                <p className="font-label-sm text-primary-container uppercase tracking-widest">Strategic Partnerships</p>
+                <h4 className="font-headline-md text-xl text-on-surface mb-1">Marina Properties</h4>
+                <p className="font-label-sm text-primary-container uppercase tracking-widest">Real Estate Partner</p>
               </div>
             </div>
           </div>
