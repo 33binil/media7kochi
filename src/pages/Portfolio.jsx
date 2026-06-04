@@ -14,18 +14,6 @@ const Portfolio = ({ onNavigate }) => {
           <p className="text-on-surface-variant max-w-2xl font-body-lg text-body-lg">A collection of our finest work in branding, advertising, media production, digital marketing, and event management. Every project reflects our passion for creativity, strategic thinking, and delivering meaningful results for our clients.</p>
         </section>
 
-        {/* Filters */}
-        <section className="max-w-7xl mx-auto px-6 mb-stack-lg">
-          <div className="flex justify-center border-b border-white/10">
-            <div className="flex gap-12">
-              <button className="py-4 font-label-sm text-label-sm text-[#F5C542] border-b-2 border-[#F5C542] transition-colors">ALL</button>
-              <button className="py-4 font-label-sm text-label-sm text-white/50 hover:text-white transition-colors">BRANDING</button>
-              <button className="py-4 font-label-sm text-label-sm text-white/50 hover:text-white transition-colors">MEDIA</button>
-              <button className="py-4 font-label-sm text-label-sm text-white/50 hover:text-white transition-colors">EVENTS</button>
-            </div>
-          </div>
-        </section>
-
         {/* Portfolio Grid */}
         <section className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-gutter">

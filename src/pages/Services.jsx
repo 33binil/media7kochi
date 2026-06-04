@@ -170,6 +170,45 @@ export default function Services({ onNavigate }) {
                 <button className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">Explore Events</button>
               </div>
             </div>
+
+            {/* Podcasting Video */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="order-2 lg:order-1">
+                <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">05. Podcasting Studio</span>
+                <h2 className="font-headline-lg text-on-background mb-8">Amplifying Voices That Matter</h2>
+                <p className="font-body-lg text-on-surface-variant mb-8">We provide a professional podcasting environment designed to help creators, brands, and businesses produce high-quality audio and video content. From recording and production to branding and distribution support, we help transform ideas into engaging conversations that connect with audiences.</p>
+                <div className="space-y-6">
+                  <div className="flex gap-6 items-start">
+                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">1</div>
+                    <div>
+                      <h4 className="font-bold text-on-background">Professional Audio & Video Podcast Production</h4>
+                    </div>
+                  </div>
+                  <div className="flex gap-6 items-start">
+                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">2</div>
+                    <div>
+                      <h4 className="font-bold text-on-background">Multi-Camera Recording Setup</h4>
+                    </div>
+                  </div>
+                  <div className="flex gap-6 items-start">
+                    <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">3</div>
+                    <div>
+                      <h4 className="font-bold text-on-background">Podcast Branding, Editing & Distribution</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="order-1 lg:order-2">
+                <div className="aspect-[4/3] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
+                    alt="Digital Marketing"
+                    src="/service5.png"
+                  />
+                  <div className="absolute inset-0 border border-white/5 pointer-events-none" />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
