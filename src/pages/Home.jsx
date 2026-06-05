@@ -211,15 +211,15 @@ export default function Home({ onNavigate }) {
         </section>
 
         {/* Testimonials */}
-        <section className="py-section-gap bg-[#1A1A1A]">
+        <section className="py-section-gap bg-[#1A1A1A] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <span className="material-symbols-outlined text-gold text-6xl mb-8">MEDIA 7</span>
-              <p className="font-headline-md italic mb-10 text-on-surface">
+              <span className="material-symbols-outlined text-gold text-4xl md:text-6xl mb-6 md:mb-8">MEDIA 7</span>
+              <p className="font-headline-md text-headline-sm md:text-headline-md italic mb-8 md:mb-10 text-on-surface">
                 &quot;At Media7, we believe every brand has a story worth telling. Our mission is to create impactful content, innovative marketing strategies, and memorable brand experiences that help businesses connect with their audiences and achieve meaningful growth. We combine creativity, technology, and strategic thinking to deliver results that make a lasting impact.&quot;
               </p>
               <div className="flex flex-col items-center gap-4">
-                <div className="w-44 h-44 bg-zinc-800 rounded-full overflow-hidden">
+                <div className="w-28 h-28 md:w-44 md:h-44 bg-zinc-800 rounded-full overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
                     alt="CEO of Media7"
