@@ -1,4 +1,5 @@
 import Footer from '../components/Footer'
+import { jobs } from '../data/jobs'
 
 export default function Careers({ onNavigate }) {
   return (
@@ -38,44 +39,19 @@ export default function Careers({ onNavigate }) {
 
             {/* Job Listing Cards */}
             <div className="space-y-6">
-              {/* Card 1 */}
-              <div className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
-                <div className="flex-1">
-                  <span className="font-label-sm text-primary-container">CREATIVE</span>
-                  <h3 className="font-headline-md text-on-surface mt-2">Senior Art Director</h3>
-                  <div className="flex gap-6 mt-4 text-on-surface-variant font-body-md">
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> New York / Remote</span>
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> Full-time</span>
+              {jobs.map(job => (
+                <div key={job.id} className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
+                  <div className="flex-1">
+                    <span className="font-label-sm text-primary-container">{job.department}</span>
+                    <h3 className="font-headline-md text-on-surface mt-2">{job.title}</h3>
+                    <div className="flex gap-6 mt-4 text-on-surface-variant font-body-md">
+                      <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> {job.location}</span>
+                      <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> {job.type}</span>
+                    </div>
                   </div>
+                  <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
                 </div>
-                <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
-              </div>
-
-              {/* Card 2 */}
-              <div className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
-                <div className="flex-1">
-                  <span className="font-label-sm text-primary-container">STRATEGY</span>
-                  <h3 className="font-headline-md text-on-surface mt-2">Brand Strategist</h3>
-                  <div className="flex gap-6 mt-4 text-on-surface-variant font-body-md">
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> London / Hybrid</span>
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> Full-time</span>
-                  </div>
-                </div>
-                <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
-              </div>
-
-              {/* Card 3 */}
-              <div className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
-                <div className="flex-1">
-                  <span className="font-label-sm text-primary-container">ENGINEERING</span>
-                  <h3 className="font-headline-md text-on-surface mt-2">Lead Full-Stack Developer</h3>
-                  <div className="flex gap-6 mt-4 text-on-surface-variant font-body-md">
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">location_on</span> San Francisco</span>
-                    <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> Full-time</span>
-                  </div>
-                </div>
-                <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
-              </div>
+              ))}
             </div>
           </div>
         </section>

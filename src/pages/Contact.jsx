@@ -9,8 +9,8 @@ export default function Contact({ onNavigate }) {
       <main className="pb-24">
         {/* Hero Section */}
         <section className="max-w-7xl mx-auto px-6 mb-stack-lg">
-          <h1 className="font-display-xl text-display-xl text-on-surface mb-stack-md">Get in Touch</h1>
-          <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          <h1 className="text-5xl md:text-display-4xl font-semibold text-on-surface mb-stack-md">Get in Touch</h1>
+          <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
             Ready to elevate your digital presence? Our executive team is available for private consultations and strategic partnership discussions.
           </p>
         </section>
@@ -27,7 +27,7 @@ export default function Contact({ onNavigate }) {
                 </div>
                 <span className="font-label-sm text-label-sm text-zinc-500 uppercase tracking-widest">Email Us</span>
               </div>
-              <p className="font-headline-md text-headline-md text-on-surface group-hover:text-[#F5C542] transition-colors">hello@media7.agency</p>
+              <p className="font-body-lg text-body-lg text-on-surface group-hover:text-[#F5C542] transition-colors">hello@media7.agency</p>
             </div>
 
             {/* Phone Card */}
@@ -38,7 +38,7 @@ export default function Contact({ onNavigate }) {
                 </div>
                 <span className="font-label-sm text-label-sm text-zinc-500 uppercase tracking-widest">Call Directly</span>
               </div>
-              <p className="font-headline-md text-headline-md text-on-surface group-hover:text-[#F5C542] transition-colors">+1 (555) 890-2410</p>
+              <p className="font-body-lg text-body-lg text-on-surface group-hover:text-[#F5C542] transition-colors">+1 (555) 890-2410</p>
             </div>
 
             {/* Address Card */}
@@ -49,7 +49,7 @@ export default function Contact({ onNavigate }) {
                 </div>
                 <span className="font-label-sm text-label-sm text-zinc-500 uppercase tracking-widest">Visit Studio</span>
               </div>
-              <p className="font-headline-md text-headline-md text-on-surface group-hover:text-[#F5C542] transition-colors">7th Avenue, Suite 400<br />New York, NY 10011</p>
+              <p className="font-body-lg text-body-lg text-on-surface group-hover:text-[#F5C542] transition-colors">3rd floor, National Pearl Star Building National Builders,<br /> 3C, behind Changampuzha Metro Station,<br /> Edappally, Kochi, Kerala 682024</p>
             </div>
           </div>
 

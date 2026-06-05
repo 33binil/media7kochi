@@ -5,6 +5,7 @@ import About from './pages/About'
 import Services from './pages/Services'
 import Portfolio from './pages/Portfolio'
 import Blog from './pages/Blog'
+import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import Careers from './pages/Careers'
 import Navbar from './components/Navbar'
@@ -12,9 +13,11 @@ import Navbar from './components/Navbar'
 export default function App() {
   const [page, setPage] = useState('home')
 
+  const isBlogPost = page.startsWith('blogpost-')
+
   return (
     <div className="relative">
-      {page !== 'home' && <Navbar onNavigate={setPage} currentPage={page} />}
+      {page !== 'home' && !isBlogPost && <Navbar onNavigate={setPage} currentPage={page} />}
 
       {page === 'home' && (
         <>
@@ -31,6 +34,7 @@ export default function App() {
       {page === 'blog' && <Blog onNavigate={setPage} />}
       {page === 'contact' && <Contact onNavigate={setPage} />}
       {page === 'careers' && <Careers onNavigate={setPage} />}
+      {isBlogPost && <BlogPost onNavigate={setPage} page={page} />}
     </div>
   )
 }
