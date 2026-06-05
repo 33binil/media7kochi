@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Loading from './pages/Loading'
 import Hero from './pages/Hero'
 import Home from './pages/Home'
 import About from './pages/About'
@@ -11,13 +12,16 @@ import Careers from './pages/Careers'
 import Navbar from './components/Navbar'
 
 export default function App() {
-  const [page, setPage] = useState('home')
+  const [page, setPage] = useState('loading')
 
   const isBlogPost = page.startsWith('blogpost-')
+  const showNav = page !== 'loading' && page !== 'home' && !isBlogPost
 
   return (
     <div className="relative">
-      {page !== 'home' && !isBlogPost && <Navbar onNavigate={setPage} currentPage={page} />}
+      {showNav && <Navbar onNavigate={setPage} currentPage={page} />}
+
+      {page === 'loading' && <Loading onNavigate={setPage} />}
 
       {page === 'home' && (
         <>
