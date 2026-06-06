@@ -277,7 +277,7 @@ export default function Services({ onNavigate }) {
         </section>
       </main>
 
-        <Footer onNavigate={onNavigate} />
+        <Footer onNavigate={onNavigate} currentPage="services" />
     </div>
   )
 }

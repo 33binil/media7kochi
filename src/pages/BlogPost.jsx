@@ -64,7 +64,7 @@ export default function BlogPost({ onNavigate, page }) {
         </div>
       </main>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer onNavigate={onNavigate} currentPage="blog" />
     </div>
   )
 }

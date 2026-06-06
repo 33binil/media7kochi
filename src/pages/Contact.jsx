@@ -27,7 +27,7 @@ export default function Contact({ onNavigate }) {
                 </div>
                 <span className="font-label-sm text-label-sm text-zinc-500 uppercase tracking-widest">Email Us</span>
               </div>
-              <p className="font-body-lg text-body-lg text-on-surface group-hover:text-[#F5C542] transition-colors">hello@media7.agency</p>
+              <p className="font-body-lg text-body-lg text-on-surface group-hover:text-[#F5C542] transition-colors">media7onlive@gmail.com</p>
             </div>
 
             {/* Phone Card */}
@@ -38,7 +38,7 @@ export default function Contact({ onNavigate }) {
                 </div>
                 <span className="font-label-sm text-label-sm text-zinc-500 uppercase tracking-widest">Call Directly</span>
               </div>
-              <p className="font-body-lg text-body-lg text-on-surface group-hover:text-[#F5C542] transition-colors">+1 (555) 890-2410</p>
+              <p className="font-body-lg text-body-lg text-on-surface group-hover:text-[#F5C542] transition-colors">+91 99955 33988</p>
             </div>
 
             {/* Address Card */}
@@ -117,7 +117,7 @@ export default function Contact({ onNavigate }) {
 
       </main>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer onNavigate={onNavigate} currentPage="contact" />
     </div>
   )
 }

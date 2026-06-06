@@ -134,7 +134,7 @@ export default function Careers({ onNavigate }) {
 
       </main>
 
-      <Footer onNavigate={onNavigate} />
+      <Footer onNavigate={onNavigate} currentPage="careers" />
     </div>
   )
 }

@@ -298,7 +298,7 @@ export default function Home({ onNavigate }) {
           <div className="absolute -bottom-24 -left-24 w-96 h-96 border-[40px] border-[#0B0B0B]/10 rounded-full" />
         </section>
 
-        <Footer onNavigate={onNavigate} />
+        <Footer onNavigate={onNavigate} currentPage="home" />
       </main>
     </div>
   )

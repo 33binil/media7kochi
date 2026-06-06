@@ -1,4 +1,13 @@
-export default function Footer({ onNavigate }) {
+export default function Footer({ onNavigate, currentPage }) {
+  const navLinks = [
+    { label: 'Home', page: 'home' },
+    { label: 'About', page: 'about' },
+    { label: 'Services', page: 'services' },
+    { label: 'Portfolio', page: 'portfolio' },
+    { label: 'Blog', page: 'blog' },
+    { label: 'Careers', page: 'careers' },
+  ]
+
   return (
     <footer className="bg-[#0B0B0B] w-full py-12 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -11,25 +20,33 @@ export default function Footer({ onNavigate }) {
         <div>
           <h4 className="font-bold text-white text-sm uppercase tracking-widest mb-6">Navigation</h4>
           <ul className="space-y-4 font-manrope text-sm">
-            <li><button onClick={() => onNavigate?.('home')} className="text-[#F5C542] transition-colors">Home</button></li>
-            <li><button onClick={() => onNavigate?.('about')} className="text-zinc-500 hover:text-white transition-colors duration-200">About</button></li>
-            <li><button onClick={() => onNavigate?.('services')} className="text-zinc-500 hover:text-white transition-colors duration-200">Services</button></li>
-            <li><button onClick={() => onNavigate?.('portfolio')} className="text-zinc-500 hover:text-white transition-colors duration-200">Portfolio</button></li>
-            <li><button onClick={() => onNavigate?.('careers')} className="text-zinc-500 hover:text-white transition-colors duration-200">Careers</button></li>
+            {navLinks.map(link => (
+              <li key={link.page}>
+                <button
+                  onClick={() => onNavigate?.(link.page)}
+                  className={`transition-colors duration-200 ${currentPage === link.page ? 'text-[#F5C542]' : 'text-zinc-500 hover:text-white'}`}
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
           </ul>
         </div>
+        
         <div>
           <h4 className="font-bold text-white text-sm uppercase tracking-widest mb-6">Connect</h4>
           <ul className="space-y-4 font-manrope text-sm">
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">News Portal</a></li>
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Facebook</a></li>
             <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">LinkedIn</a></li>
             <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Instagram</a></li>
             <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Twitter</a></li>
-            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Behance</a></li>
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Youtube</a></li>
           </ul>
         </div>
         <div>
           <h4 className="font-bold text-white text-sm uppercase tracking-widest mb-6">Office</h4>
-          <p className="font-manrope text-sm text-zinc-500 mb-2">London &bull; Dubai &bull; New York</p>
+          <p className="font-manrope text-sm text-zinc-500 mb-2">3rd floor, National Pearl Star Building National Builders,3C, behind Changampuzha Metro Station, Edappally, Kochi, Kerala 682024</p>
           <p className="font-manrope text-sm text-zinc-500">concierge@media7.com</p>
         </div>
       </div>

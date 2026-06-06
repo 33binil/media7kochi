@@ -46,7 +46,7 @@ const Portfolio = ({ onNavigate }) => {
         </section>
       </main>
 
-        <Footer onNavigate={onNavigate} />
+        <Footer onNavigate={onNavigate} currentPage="portfolio" />
     </div>
   )
 }

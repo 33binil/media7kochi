@@ -175,7 +175,7 @@ export default function About({ onNavigate }) {
         </section>
       </main>
 
-        <Footer onNavigate={onNavigate} />
+        <Footer onNavigate={onNavigate} currentPage="about" />
     </div>
   )
 }
