@@ -60,11 +60,11 @@ export default function Contact({ onNavigate }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Full Name</label>
-                  <input className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="John Doe" type="text" />
+                  <input className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Your/Company Name" type="text" />
                 </div>
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Email Address</label>
-                  <input className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="john@example.com" type="email" />
+                  <input className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Your/Company Email Addres" type="email" />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -80,9 +80,9 @@ export default function Contact({ onNavigate }) {
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Budget Range</label>
                   <select className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors">
-                    <option>$20k - $50k</option>
-                    <option>$50k - $150k</option>
-                    <option>$150k+</option>
+                    <option>₹10,000 - ₹30,000</option>
+                    <option>₹40,000 - ₹80,000</option>
+                    <option>₹80,000+</option>
                   </select>
                 </div>
               </div>

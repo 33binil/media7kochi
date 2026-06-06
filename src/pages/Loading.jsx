@@ -16,42 +16,38 @@ export default function Loading({ onNavigate }) {
 
     for (let i = 0; i < TOTAL_FRAMES; i++) {
       const img = new Image()
-      img.src = `/${folder}/ezgif-frame-${String(i + 1).padStart(3, '0')}.webp`
+      const padded = String(i + 1).padStart(3, '0')
+      img.src = '/' + folder + '/ezgif-frame-' + padded + '.webp'
       img.onload = () => {
-        loaded++
+        loaded = loaded + 1
         setProgress(loaded / TOTAL_FRAMES)
         if (loaded === TOTAL_FRAMES) {
-          setTimeout(() => onNavigate('home'), 600)
+          setTimeout(function () { onNavigate('home') }, 600)
         }
       }
       img.onerror = () => {
-        loaded++
+        loaded = loaded + 1
         setProgress(loaded / TOTAL_FRAMES)
         if (loaded === TOTAL_FRAMES) {
-          setTimeout(() => onNavigate('home'), 600)
+          setTimeout(function () { onNavigate('home') }, 600)
         }
       }
     }
   }, [onNavigate])
 
-  useEffect(() => {
+  useEffect(function () {
     if (display >= 100) return
-    const target = Math.min(progress * 100, 99.9)
+    var target = Math.min(progress * 100, 99.9)
     if (display >= target) return
-    const speed = display < 60 ? 4 : 2
-    const id = setTimeout(() => setDisplay(d => Math.min(d + speed, target)), 30)
-    return () => clearTimeout(id)
+    var speed = display < 60 ? 4 : 2
+    var id = setTimeout(function () { setDisplay(function (d) { return Math.min(d + speed, target) }) }, 30)
+    return function () { clearTimeout(id) }
   }, [display, progress])
 
-  const percent = progress >= 1 ? 100 : Math.round(display)
+  var pct = progress >= 1 ? 100 : Math.round(display)
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex flex-col items-center justify-center"
-      style={{
-        background: 'radial-gradient(ellipse at center, #0a0f1a 0%, #060a12 50%, #030508 100%)',
-      }}
-    >
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center" style={{ background: 'radial-gradient(ellipse at center, #0a0f1a 0%, #060a12 50%, #030508 100%)' }}>
       <style>{`
         @keyframes spin-slow { to { transform: rotate(360deg); } }
         @keyframes spin-slower { to { transform: rotate(-360deg); } }
@@ -68,7 +64,6 @@ export default function Loading({ onNavigate }) {
           50% { text-shadow: 0 0 40px rgba(245,197,66,0.3), 0 0 80px rgba(245,197,66,0.1); }
         }
       `}</style>
-
       <div className="relative flex flex-col items-center">
         <div className="absolute -inset-14" style={{ animation: 'spin-slow 5s linear infinite' }}>
           <svg viewBox="0 0 200 200" className="w-full h-full" style={{ animation: 'ring-fade 4s ease-in-out infinite' }}>
@@ -82,7 +77,6 @@ export default function Loading({ onNavigate }) {
             <circle cx="100" cy="100" r="88" fill="none" stroke="url(#ringGrad)" strokeWidth="1" strokeDasharray="3 7" />
           </svg>
         </div>
-
         <div className="absolute -inset-10" style={{ animation: 'spin-slower 7s linear infinite' }}>
           <svg viewBox="0 0 200 200" className="w-full h-full" style={{ animation: 'ring-fade 5s ease-in-out infinite 1s' }}>
             <defs>
@@ -95,54 +89,33 @@ export default function Loading({ onNavigate }) {
             <circle cx="100" cy="100" r="78" fill="none" stroke="url(#ringGrad2)" strokeWidth="1.5" strokeDasharray="1 5" />
           </svg>
         </div>
-
         <div style={{ animation: 'logo-pulse 3.5s ease-in-out infinite' }}>
-          <img
-            src="/logo.png"
-            alt="Media7"
-            className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain select-none relative z-10"
-            style={{
-              filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.12)) drop-shadow(0 0 40px rgba(200,200,210,0.08))',
-            }}
-          />
+          <img src="/logo.png" alt="Media7" className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain select-none relative z-10" style={{ filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.12)) drop-shadow(0 0 40px rgba(200,200,210,0.08))' }} />
         </div>
-
         <div className="absolute w-full h-full" style={{ animation: 'spin-slow 10s linear infinite' }}>
-          {[0, 45, 90, 135, 180, 225, 270, 315].map((deg, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full"
-              style={{
+          {[0, 45, 90, 135, 180, 225, 270, 315].map(function (deg, i) {
+            return (
+              <div key={i} className="absolute rounded-full" style={{
                 width: i % 2 === 0 ? 2 : 1.5,
                 height: i % 2 === 0 ? 2 : 1.5,
                 background: i % 2 === 0 ? 'rgba(255,255,255,0.4)' : 'rgba(200,200,210,0.25)',
                 top: '50%',
                 left: '50%',
-                transform: `rotate(${deg}deg) translateY(-56px)`,
+                transform: 'rotate(' + deg + 'deg) translateY(-56px)',
                 transformOrigin: '0 0',
-              }}
-            />
-          ))}
+              }} />
+            )
+          })}
         </div>
       </div>
-
       <div className="absolute bottom-28 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4">
-        <div
-          className="font-display-xl text-7xl md:text-8xl text-gold tabular-nums leading-none"
-          style={{ animation: 'count-glow 2s ease-in-out infinite' }}
-        >
-          {percent}
-          <span className="text-3xl md:text-4xl text-white/20">%</span>
+        <div className="font-display-xl text-7xl md:text-8xl text-gold tabular-nums leading-none" style={{ animation: 'count-glow 2s ease-in-out infinite' }}>
+          {pct}<span className="text-3xl md:text-4xl text-white/20">%</span>
         </div>
-        <div className="w-48 h-[2px] bg-white/10 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-gold rounded-full transition-all duration-300"
-            style={{ width: `${percent}%` }}
-          </div>
+        <div className="w-48 h-0.5 bg-white/10 rounded-full overflow-hidden">
+          <div className="h-full bg-gold rounded-full transition-all duration-300" style={{ width: pct + '%' }} />
         </div>
-        <span className="text-xs tracking-[0.2em] uppercase text-white/40">
-          {percent >= 100 ? 'Ready' : 'Loading'}
-        </span>
+        <span className="text-xs tracking-widest uppercase text-white/40">{pct >= 100 ? 'Ready' : 'Loading'}</span>
       </div>
     </div>
   )

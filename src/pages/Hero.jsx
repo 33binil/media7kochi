@@ -67,6 +67,7 @@ export default function Hero() {
     img.onload = () => {
       if (index === frameRef.current || index === 0) drawFrame(index)
     }
+    if (img.complete) img.onload()
   }
 
   function ensureWindow(center) {
@@ -119,7 +120,6 @@ export default function Hero() {
 
     imagesRef.current = []
     loadedRef.current = new Set()
-    loadedCountRef.current = 0
     for (let i = 0; i < INITIAL_LOAD; i++) loadFrame(i)
 
     return () => {
