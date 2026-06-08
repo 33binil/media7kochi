@@ -270,8 +270,8 @@ export default function Services({ onNavigate }) {
             <h2 className="font-headline-lg text-on-background mb-6">Ready to elevate?</h2>
             <p className="font-body-lg text-on-surface-variant mb-10">Connect with our executive team to discuss your next high-impact project.</p>
             <div className="flex flex-col md:flex-row justify-center gap-4">
-              <button className="bg-[#F5C542] text-black px-10 py-4 font-bold text-lg hover:brightness-110 active:scale-95 transition-all">Start a Project</button>
-              <button className="border border-white/20 px-10 py-4 font-bold text-lg text-on-background hover:bg-white/5 transition-all">Our Portfolio</button>
+              <button onClick={() => onNavigate('contact')} className="bg-[#F5C542] text-black px-10 py-4 font-bold text-lg hover:brightness-110 active:scale-95 transition-all">Start a Project</button>
+              <button onClick={() => onNavigate('portfolio')} className="border border-white/20 px-10 py-4 font-bold text-lg text-on-background hover:bg-white/5 transition-all">Our Portfolio</button>
             </div>
           </div>
         </section>
