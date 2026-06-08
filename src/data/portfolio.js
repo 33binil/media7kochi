@@ -7,7 +7,7 @@ export const projects = [
     gridClass: 'md:col-span-8',
     aspect: 'aspect-[16/10]',
     imgClass: 'aspect-[16/10]',
-    img: '/portfolio1.png',
+    img: '/portfolio1.webp',
     alt: 'The Stanza by Whitelion',
   },
   {
@@ -17,7 +17,7 @@ export const projects = [
     gridClass: 'md:col-span-4',
     aspect: 'aspect-[9/11]',
     imgClass: 'aspect-[9/11]',
-    img: '/portfolio2.png',
+    img: '/portfolio2.webp',
     alt: 'Elevating beauty and wellness brands through elegant visual communication, strategic digital marketing, and premium promotional design. Crafted to highlight professional makeover services, advanced beauty treatments, and luxury client experiences.',
   },
   {
@@ -27,7 +27,7 @@ export const projects = [
     gridClass: 'md:col-span-4',
     aspect: 'aspect-square',
     imgClass: 'aspect-square',
-    img: '/portfolio3.png',
+    img: '/portfolio3.webp',
     alt: 'Empowering entrepreneurs and growing businesses through strategic financial awareness campaigns, impactful visual communication, and high-converting promotional content designed to increase engagement and generate qualified leads.',
   },
   {
@@ -37,7 +37,7 @@ export const projects = [
     gridClass: 'md:col-span-8',
     aspect: 'aspect-[16/8]',
     imgClass: 'aspect-[16/8]',
-    img: '/portfolio4.png',
+    img: '/portfolio4.webp',
     alt: 'Transforming property listings into compelling visual experiences through strategic branding, premium creative design, and high-impact marketing campaigns that connect buyers with their dream homes.',
   },
   {
@@ -47,7 +47,7 @@ export const projects = [
     gridClass: 'md:col-span-6',
     aspect: 'aspect-[4/3]',
     imgClass: 'aspect-[4/3]',
-    img: '/portfolio5.png',
+    img: '/portfolio5.webp',
     alt: 'Developed a premium event promotion campaign highlighting Indias ultimate hair fashion competition through luxury visual design, strategic branding, and impactful marketing creatives that elevate audience engagement and brand visibility.',
   },
   {
@@ -57,7 +57,7 @@ export const projects = [
     gridClass: 'md:col-span-6',
     aspect: 'aspect-[4/3]',
     imgClass: 'aspect-[4/3]',
-    img: '/portfolio6.png',
+    img: '/portfolio6.webp',
     alt: 'Crafting a refined event identity through premium design, strategic brand collaboration, and elegant visual experiences that elevate audience engagement and celebrate excellence in beauty and fashion.',
   },
 ]

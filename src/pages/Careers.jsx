@@ -63,7 +63,7 @@ export default function Careers({ onNavigate }) {
                 <img
                   alt="Office"
                   className="w-full h-full object-cover transition-all duration-700"
-                  src="/office.png"
+                  src="/office.webp"
                 />
                 <div className="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black/80 to-transparent w-full">
                   <p className="font-headline-md text-white">Collaborative Excellence</p>

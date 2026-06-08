@@ -20,7 +20,7 @@ export default function Navbar({ onNavigate, currentPage }) {
             {mobileOpen ? 'close' : 'menu'}
           </span>
           <img
-            src="/logo2.png"
+            src="/logo2.webp"
             alt="Media7"
             className="h-8 w-auto cursor-pointer"
             onClick={() => handleNav('home')}

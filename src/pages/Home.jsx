@@ -160,7 +160,7 @@ export default function Home({ onNavigate }) {
                 <img
                   className="w-full h-full object-cover"
                   alt="Media7 Studio"
-                  src="/home_section_1.png"
+                  src="/home_section_1.webp"
                 />
               </div>
               <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-gold flex items-center justify-center p-8 z-20">
@@ -223,7 +223,7 @@ export default function Home({ onNavigate }) {
                   <img
                     className="w-full h-full object-cover"
                     alt="CEO of Media7"
-                    src="/CEO_of_Media7.png"
+                    src="/CEO_of_Media7.webp"
                   />
                 </div>
                 <div className="text-center">

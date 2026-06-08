@@ -51,7 +51,7 @@ export default function Services({ onNavigate }) {
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
                     alt="Branding and Advertising"
-                    src="/service1.png"
+                    src="/service1.webp"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
@@ -65,7 +65,7 @@ export default function Services({ onNavigate }) {
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
                     alt="Media Production"
-                    src="/service2.png"
+                    src="/service2.webp"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
@@ -130,7 +130,7 @@ export default function Services({ onNavigate }) {
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
                     alt="Digital Marketing"
-                    src="/service3.png"
+                    src="/service3.webp"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
@@ -144,7 +144,7 @@ export default function Services({ onNavigate }) {
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
                     alt="Events and Experiences"
-                    src="/service4.png"
+                    src="/service4.webp"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
@@ -203,7 +203,7 @@ export default function Services({ onNavigate }) {
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70"
                     alt="Digital Marketing"
-                    src="/service5.png"
+                    src="/service5.webp"
                   />
                   <div className="absolute inset-0 border border-white/5 pointer-events-none" />
                 </div>
