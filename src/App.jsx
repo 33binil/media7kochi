@@ -14,31 +14,20 @@ import Terms from './pages/Terms'
 import Navbar from './components/Navbar'
 
 export default function App() {
-  const [page, setPage] = useState(() => {
-    const saved = sessionStorage.getItem('app_page')
-    return saved || 'loading'
-  })
+  const [page, setPage] = useState('loading')
 
   const isBlogPost = page.startsWith('blogpost-')
   const showNav = page !== 'loading' && page !== 'home' && !isBlogPost
 
   function navigate(nextPage) {
-    const prev = page
     setPage(nextPage)
-    sessionStorage.setItem('app_page', nextPage)
-    window.history.pushState({ page: nextPage, prev }, '', '')
+    window.history.pushState({ page: nextPage }, '', '')
   }
 
   useEffect(() => {
     function handlePopState(e) {
       if (e.state?.page) {
         setPage(e.state.page)
-        sessionStorage.setItem('app_page', e.state.page)
-      } else {
-        const fallback = sessionStorage.getItem('app_page') || 'home'
-        setPage(fallback)
-        sessionStorage.setItem('app_page', fallback)
-        window.history.replaceState({ page: fallback }, '', '')
       }
     }
     window.addEventListener('popstate', handlePopState)
