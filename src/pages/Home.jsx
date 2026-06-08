@@ -11,33 +11,38 @@ export default function Home({ onNavigate }) {
     const el = ref.current
     if (!el) return
 
-    let visible = false
+    let revealed = false
+
+    function reveal() {
+      if (revealed) return
+      revealed = true
+      el.style.transition = 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease-out'
+      el.style.transform = 'translateY(0)'
+      el.style.opacity = '1'
+      document.body.style.overflow = 'hidden'
+      window.removeEventListener('scroll', handleScroll)
+    }
 
     let ticking = false
     const handleScroll = () => {
+      if (revealed) return
       if (!ticking) {
         ticking = true
         requestAnimationFrame(() => {
           ticking = false
           const maxScroll = document.documentElement.scrollHeight - window.innerHeight
           const p = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0
-          const shouldBe = p >= 1
-
-          if (shouldBe !== visible) {
-            visible = shouldBe
-            el.style.transition = shouldBe
-              ? 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease-out'
-              : 'transform 0.5s ease-in, opacity 0.3s ease-in'
-            el.style.transform = shouldBe ? 'translateY(0)' : 'translateY(100%)'
-            el.style.opacity = shouldBe ? '1' : '0'
-          }
+          if (p >= 1) reveal()
         })
       }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.body.style.overflow = ''
+    }
   }, [])
 
   return (
