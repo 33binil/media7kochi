@@ -18,16 +18,34 @@ export default function Contact({ onNavigate }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    const message = [
-      '*Project Inquiry*',
+    const subject = encodeURIComponent('New Project Proposal - ' + form.projectType)
+    const body = encodeURIComponent([
+      'Dear Media7 Team,',
       '',
-      '*Name:* ' + form.name,
-      '*Email:* ' + form.email,
-      '*Project Type:* ' + form.projectType,
-      '*Budget:* ' + form.budget,
-      '*Brief:* ' + form.brief,
-    ].join('\n')
-    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank')
+      'I would like to submit a proposal for a new project.',
+      '',
+      '---',
+      'Contact Information -',
+      'Full Name: ' + form.name,
+      'Email Address: ' + form.email,
+      '',
+      '---',
+      'Project Details -',
+      'Project Type: ' + form.projectType,
+      'Budget Range: ' + form.budget,
+      '',
+      '---',
+      'Project Brief',
+      form.brief,
+      '',
+      '---',
+      '',
+      'I look forward to discussing this opportunity further.',
+      '',
+      'Best regards,',
+      form.name,
+    ].join('\n'))
+    window.location.href = 'mailto:media7onlive@gmail.com?subject=' + subject + '&body=' + body
   }
 
   return (
