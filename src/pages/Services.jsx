@@ -44,7 +44,7 @@ export default function Services({ onNavigate }) {
                     Strategic Brand Positioning
                   </li>
                 </ul>
-                <button className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">Explore Branding</button>
+                <button onClick={() => window.open('https://www.instagram.com/media7entertainments/', '_blank')} className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">Explore Branding</button>
               </div>
               <div className="order-1 lg:order-2">
                 <div className="aspect-[4/5] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
@@ -91,7 +91,7 @@ export default function Services({ onNavigate }) {
                     <p className="text-sm text-on-surface-variant">High-End Brand Assets</p>
                   </div>
                 </div>
-                <button className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">View Our Reels</button>
+                <button onClick={() => window.open('https://www.instagram.com/media7entertainments/reels/', '_blank')} className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">View our Reels</button>
               </div>
             </div>
 
@@ -167,7 +167,7 @@ export default function Services({ onNavigate }) {
                     Event Planning &amp; Management
                   </li>
                 </ul>
-                <button className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">Explore Events</button>
+                <button onClick={() => window.open('https://www.instagram.com/glamhair2026_/', '_blank')} className="border border-white/20 px-8 py-3 font-bold text-on-background hover:bg-white/5 transition-all">Explore our Events</button>
               </div>
             </div>
 
