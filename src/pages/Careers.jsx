@@ -110,7 +110,7 @@ export default function Careers({ onNavigate }) {
               <span className="font-label-sm text-primary-container uppercase tracking-widest">Send an Email</span>
             </a>
             <a
-              href="https://wa.me/15558902410"
+              href="https://wa.me/+919995533809"
               target="_blank"
               rel="noopener noreferrer"
               className="group bg-[#1A1A1A] border border-white/5 p-10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 hover:scale-[1.02]"
