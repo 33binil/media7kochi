@@ -38,7 +38,7 @@ const Portfolio = ({ onNavigate }) => {
             <div className="relative z-10">
               <h2 className="font-headline-lg text-headline-lg text-on-surface mb-6">Ready to curate your next chapter?</h2>
               <p className="text-on-surface-variant font-body-lg text-body-lg mb-8 max-w-xl mx-auto">Join a roster of elite brands who trust Media7 with their creative and strategic narrative.</p>
-              <button className="bg-[#F5C542] text-[#0B0B0B] px-12 py-4 text-lg font-bold transition-transform active:scale-95">
+              <button onClick={() => onNavigate('contact')} className="bg-[#F5C542] text-[#0B0B0B] px-12 py-4 text-lg font-bold transition-transform active:scale-95">
                 Start Your Project
               </button>
             </div>
