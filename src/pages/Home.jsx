@@ -13,18 +13,25 @@ export default function Home({ onNavigate }) {
 
     let visible = false
 
+    let ticking = false
     const handleScroll = () => {
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight
-      const p = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0
-      const shouldBe = p >= 1
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(() => {
+          ticking = false
+          const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+          const p = maxScroll > 0 ? Math.min(window.scrollY / maxScroll, 1) : 0
+          const shouldBe = p >= 1
 
-      if (shouldBe !== visible) {
-        visible = shouldBe
-        el.style.transition = shouldBe
-          ? 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease-out'
-          : 'transform 0.5s ease-in, opacity 0.3s ease-in'
-        el.style.transform = shouldBe ? 'translateY(0)' : 'translateY(100%)'
-        el.style.opacity = shouldBe ? '1' : '0'
+          if (shouldBe !== visible) {
+            visible = shouldBe
+            el.style.transition = shouldBe
+              ? 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.5s ease-out'
+              : 'transform 0.5s ease-in, opacity 0.3s ease-in'
+            el.style.transform = shouldBe ? 'translateY(0)' : 'translateY(100%)'
+            el.style.opacity = shouldBe ? '1' : '0'
+          }
+        })
       }
     }
 
@@ -36,12 +43,12 @@ export default function Home({ onNavigate }) {
   return (
     <div
       ref={ref}
-      className="h-full w-full bg-[#0B0B0B]"
-      style={{ transform: 'translateY(100%)', opacity: 0 }}
+      className="h-dvh w-full bg-[#0B0B0B]"
+      style={{ transform: 'translateY(100%)', opacity: 0, willChange: 'transform, opacity' }}
     >
       <Navbar onNavigate={onNavigate} currentPage="home" />
       {/* Scrollable content */}
-      <main className="h-full overflow-y-auto overscroll-behavior-contain pt-20">
+      <main className="h-dvh overflow-y-auto overscroll-behavior-contain pt-20">
         {/* Hero Section */}
         <section className="relative h-[921px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">

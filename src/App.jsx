@@ -46,7 +46,7 @@ export default function App() {
       {page === 'home' && (
         <>
           <Hero />
-          <div className="fixed inset-0 z-10">
+          <div className="fixed inset-0 z-10" style={{ height: '100dvh' }}>
             <Home onNavigate={navigate} />
           </div>
         </>
