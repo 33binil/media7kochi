@@ -9,6 +9,8 @@ import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import Contact from './pages/Contact'
 import Careers from './pages/Careers'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 import Navbar from './components/Navbar'
 
 export default function App() {
@@ -38,6 +40,8 @@ export default function App() {
       {page === 'blog' && <Blog onNavigate={setPage} />}
       {page === 'contact' && <Contact onNavigate={setPage} />}
       {page === 'careers' && <Careers onNavigate={setPage} />}
+      {page === 'privacy' && <Privacy onNavigate={setPage} />}
+      {page === 'terms' && <Terms onNavigate={setPage} />}
       {isBlogPost && <BlogPost onNavigate={setPage} page={page} />}
     </div>
   )
