@@ -28,12 +28,7 @@ export default function Careers({ onNavigate }) {
             <div className="flex justify-between items-end mb-12">
               <div>
                 <h2 className="font-headline-lg text-on-surface">Open Positions</h2>
-                <p className="text-on-surface-variant font-body-md mt-2">Filter by department or browse all roles below.</p>
-              </div>
-              <div className="flex gap-4">
-                <span className="px-4 py-2 border border-outline-variant text-label-sm rounded-full text-on-surface">All Roles</span>
-                <span className="px-4 py-2 border border-outline-variant/30 text-label-sm rounded-full text-on-surface-variant hover:border-outline-variant transition-colors cursor-pointer">Creative</span>
-                <span className="px-4 py-2 border border-outline-variant/30 text-label-sm rounded-full text-on-surface-variant hover:border-outline-variant transition-colors cursor-pointer">Strategy</span>
+                <p className="text-on-surface-variant font-body-md mt-2">browse all roles below.</p>
               </div>
             </div>
 
@@ -110,7 +105,7 @@ export default function Careers({ onNavigate }) {
               </div>
               <div>
                 <h3 className="font-headline-md text-on-surface mb-2">Gmail</h3>
-                <p className="text-on-surface-variant font-body-md">talent@media7.agency</p>
+                <p className="text-on-surface-variant font-body-md">media7onlive@gmail.com</p>
               </div>
               <span className="font-label-sm text-primary-container uppercase tracking-widest">Send an Email</span>
             </a>
@@ -125,7 +120,7 @@ export default function Careers({ onNavigate }) {
               </div>
               <div>
                 <h3 className="font-headline-md text-on-surface mb-2">WhatsApp</h3>
-                <p className="text-on-surface-variant font-body-md">+1 (555) 890-2410</p>
+                <p className="text-on-surface-variant font-body-md">+91 99955 33988</p>
               </div>
               <span className="font-label-sm text-[#25D366] uppercase tracking-widest">Start a Chat</span>
             </a>

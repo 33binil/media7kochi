@@ -26,7 +26,7 @@ export default function Navbar({ onNavigate, currentPage }) {
             onClick={() => handleNav('home')}
           />
           <span
-            className="text-xl font-black tracking-widest text-[#F5C542] uppercase font-headline-lg cursor-pointer"
+            className="max-sm:text-sm sm:text-lg md:text-xl font-black tracking-widest text-[#F5C542] uppercase font-headline-lg cursor-pointer"
             onClick={() => handleNav('home')}
           >
             Media7

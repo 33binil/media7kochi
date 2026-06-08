@@ -1,6 +1,35 @@
+import { useState } from 'react'
 import Footer from '../components/Footer'
 
+const WHATSAPP_NUMBER = '918590017388'
+
 export default function Contact({ onNavigate }) {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    projectType: 'Brand Identity',
+    budget: '₹10,000 - ₹30,000',
+    brief: '',
+  })
+
+  function handleChange(field, value) {
+    setForm(prev => ({ ...prev, [field]: value }))
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    const message = [
+      '*Project Inquiry*',
+      '',
+      '*Name:* ' + form.name,
+      '*Email:* ' + form.email,
+      '*Project Type:* ' + form.projectType,
+      '*Budget:* ' + form.budget,
+      '*Brief:* ' + form.brief,
+    ].join('\n')
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message), '_blank')
+  }
+
   return (
     <div className="h-screen overflow-y-auto bg-[#0B0B0B] text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
       {/* Nav Spacer */}
@@ -56,21 +85,21 @@ export default function Contact({ onNavigate }) {
           {/* Right Column: Project Inquiry Form */}
           <div className="lg:col-span-8 bg-[#1A1A1A] border border-white/5 p-stack-lg">
             <h2 className="font-headline-md text-headline-md mb-stack-lg text-on-surface">Project Inquiry</h2>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Full Name</label>
-                  <input className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Your/Company Name" type="text" />
+                  <input value={form.name} onChange={e => handleChange('name', e.target.value)} className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Your/Company Name" type="text" />
                 </div>
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Email Address</label>
-                  <input className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Your/Company Email Addres" type="email" />
+                  <input value={form.email} onChange={e => handleChange('email', e.target.value)} className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Your/Company Email Address" type="email" />
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Project Type</label>
-                  <select className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors">
+                  <select value={form.projectType} onChange={e => handleChange('projectType', e.target.value)} className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors">
                     <option>Brand Identity</option>
                     <option>Digital Strategy</option>
                     <option>High-End Web Development</option>
@@ -79,7 +108,7 @@ export default function Contact({ onNavigate }) {
                 </div>
                 <div className="space-y-2">
                   <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Budget Range</label>
-                  <select className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors">
+                  <select value={form.budget} onChange={e => handleChange('budget', e.target.value)} className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors">
                     <option>₹10,000 - ₹30,000</option>
                     <option>₹40,000 - ₹80,000</option>
                     <option>₹80,000+</option>
@@ -88,7 +117,7 @@ export default function Contact({ onNavigate }) {
               </div>
               <div className="space-y-2">
                 <label className="font-label-sm text-label-sm text-on-surface-variant uppercase">Project Brief</label>
-                <textarea className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Tell us about your vision and goals..." rows="6"></textarea>
+                <textarea value={form.brief} onChange={e => handleChange('brief', e.target.value)} className="w-full bg-[#0B0B0B] border border-white/5 focus:border-[#F5C542] focus:ring-0 text-on-surface font-body-md p-4 transition-colors" placeholder="Tell us about your vision and goals..." rows="6"></textarea>
               </div>
               <div className="pt-4">
                 <button className="w-full bg-[#F5C542] text-black font-bold py-6 text-label-sm uppercase tracking-widest hover:brightness-110 transition-all active:scale-[0.98]" type="submit">
