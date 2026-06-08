@@ -6,5 +6,11 @@ export const jobs = [
     location: 'Kochi, Kerala',
     type: 'Full-time',
   },
-  
+  {
+    id: 2,
+    department: 'DESIGNING',
+    title: 'Graphic Designer',
+    location: 'Kochi, Kerala',
+    type: 'Full-time',
+  },
 ]

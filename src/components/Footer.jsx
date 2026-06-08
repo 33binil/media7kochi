@@ -36,12 +36,12 @@ export default function Footer({ onNavigate, currentPage }) {
         <div>
           <h4 className="font-bold text-white text-sm uppercase tracking-widest mb-6">Connect</h4>
           <ul className="space-y-4 font-manrope text-sm">
-            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">News Portal</a></li>
-            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Facebook</a></li>
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="https://media7news.com" target="_blank" rel="noopener noreferrer">News Portal</a></li>
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="https://www.facebook.com/profile.php?id=61583516706710" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">LinkedIn</a></li>
-            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Instagram</a></li>
-            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Twitter</a></li>
-            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="#">Youtube</a></li>
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="https://www.instagram.com/media7entertainments/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="https://x.com/media7onlive" target="_blank" rel="noopener noreferrer">Twitter</a></li>
+            <li><a className="text-zinc-500 hover:text-white transition-colors duration-200" href="https://www.youtube.com/@media7onlive" target="_blank" rel="noopener noreferrer">Youtube</a></li>
           </ul>
         </div>
         <div>

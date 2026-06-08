@@ -44,7 +44,7 @@ export default function Careers({ onNavigate }) {
                       <span className="flex items-center gap-2"><span className="material-symbols-outlined text-sm">schedule</span> {job.type}</span>
                     </div>
                   </div>
-                  <button className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
+                  <button onClick={() => window.open(`https://wa.me/919995533988?text=${encodeURIComponent(`Full name : \nJob title: ${job.title}\nFull time or Internship : `)}`, '_blank')} className="bg-primary-container text-on-primary-fixed px-10 py-4 font-bold active:scale-95 transition-transform">Apply Now</button>
                 </div>
               ))}
             </div>
