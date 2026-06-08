@@ -90,7 +90,7 @@ export default function Loading({ onNavigate }) {
           </svg>
         </div>
         <div style={{ animation: 'logo-pulse 3.5s ease-in-out infinite' }}>
-          <img src="/logo.png" alt="Media7" className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain select-none relative z-10" style={{ filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.12)) drop-shadow(0 0 40px rgba(200,200,210,0.08))' }} />
+          <img src="/logo.webp" alt="Media7" className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 object-contain select-none relative z-10" style={{ filter: 'drop-shadow(0 0 15px rgba(255,255,255,0.12)) drop-shadow(0 0 40px rgba(200,200,210,0.08))' }} />
         </div>
         <div className="absolute w-full h-full" style={{ animation: 'spin-slow 10s linear infinite' }}>
           {[0, 45, 90, 135, 180, 225, 270, 315].map(function (deg, i) {
