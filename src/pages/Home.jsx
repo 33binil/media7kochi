@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { projects } from '../data/portfolio'
+import { posts } from '../data/blog'
 
 export default function Home({ onNavigate }) {
   const ref = useRef(null)
@@ -175,7 +176,7 @@ export default function Home({ onNavigate }) {
                 <p>Media7 Kochi was founded with a vision to help businesses build meaningful connections with their audiences through impactful media and marketing solutions. By combining creativity, technology, and strategic thinking, we create powerful brand experiences that drive engagement and business growth.</p>
                 <p>Our approach is centered on understanding each client's unique goals and delivering customized solutions that generate measurable results. From branding and digital marketing to video production, advertising, and event management, we partner with businesses to strengthen their presence and achieve lasting success.</p>
               </div>
-              <button className="mt-12 border-b-2 border-gold pb-2 text-gold font-bold uppercase tracking-widest hover:text-white hover:border-white transition-all">
+              <button onClick={() => onNavigate?.('services')} className="mt-12 border-b-2 border-gold pb-2 text-gold font-bold uppercase tracking-widest hover:text-white hover:border-white transition-all">
                 Discover Our Services
               </button>
             </div>
@@ -239,48 +240,23 @@ export default function Home({ onNavigate }) {
         <section className="py-section-gap max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center mb-16">
             <h2 className="font-headline-lg">Latest Thinking.</h2>
-            <a className="text-gold font-bold uppercase tracking-widest text-xs hover:text-white transition-colors" href="#">Read all Articles</a>
+            <button onClick={() => onNavigate?.('blog')} className="text-gold font-bold uppercase tracking-widest text-xs hover:text-white transition-colors">Read all Articles</button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Blog 1 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[16/9] overflow-hidden mb-6">
-                <img
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt="An artistic close-up of a high-end digital interface on a sleek tablet."
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDweCdEZPDFm9T7x4N29glll7qEX3NKcVHVnlLlcRGekmNvjlRIQiEPLERAzW8nYkR6wQ9s9XLroHL9RuljA3jyMJtDZ5QvgCuvnvZEiJE1jMjjbki1z3pB3BAhtphboO9uktJnVF1_yWGSrqoUzdWmmqHFDC8pGsC3YIONMS96KtTGpLrao4XD47cfjIL-tdhrtIPvGBZg0rm1KveCzw7yTtuub2moMhJlvfRmSifgslQx3aebzNHZEqh_o8H2btf_soLhKK87SnM"
-                />
+            {posts.slice(0, 3).map(post => (
+              <div key={post.id} onClick={() => onNavigate?.(`blogpost-${post.id}`)} className="group cursor-pointer">
+                <div className="aspect-[16/9] overflow-hidden mb-6">
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    alt={post.alt}
+                    src={post.img}
+                  />
+                </div>
+                <span className="font-label-sm text-gold uppercase tracking-widest mb-3 block">{post.category}</span>
+                <h3 className="font-headline-md text-on-surface group-hover:text-gold transition-colors mb-4">{post.title}</h3>
+                <p className="font-body-md text-on-surface-variant line-clamp-2">{post.description}</p>
               </div>
-              <span className="font-label-sm text-gold uppercase tracking-widest mb-3 block">Branding</span>
-              <h3 className="font-headline-md text-on-surface group-hover:text-gold transition-colors mb-4">The Psychology of Minimalist Luxury</h3>
-              <p className="font-body-md text-on-surface-variant line-clamp-2">How reducing visual noise creates an atmosphere of exclusive authority and trust...</p>
-            </div>
-            {/* Blog 2 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[16/9] overflow-hidden mb-6">
-                <img
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt="A photograph of a high-end rooftop event at night."
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4LneSNAotyEUR3OhReZ8he6Sx2ObhLE6TdYjG8pi_F6IGSrtzDBo0GX0aeTBmLBHOP5AfQOryNnHqu1az1SWbUUVNM8vjrUM4oVlHiCTBFNCGZnLkFpR7sHToK3COE9e0xYsEyWcILyqNwSyNk7dzF2S6Dk0cTfyOak1LA1-LBlndTxKPghYqvGxrZR8DMetNY7UGUfRq7sraGs01q9_UR9AV7N7rDq35FqMPCFV-X7hXCf4CQ0oaVn645S6jlNM6q2xjulkZW84"
-                />
-              </div>
-              <span className="font-label-sm text-gold uppercase tracking-widest mb-3 block">Strategy</span>
-              <h3 className="font-headline-md text-on-surface group-hover:text-gold transition-colors mb-4">2024 Media Trends for High-Net-Worth Brands</h3>
-              <p className="font-body-md text-on-surface-variant line-clamp-2">Navigating the shift toward private digital communities and curated media experiences...</p>
-            </div>
-            {/* Blog 3 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-[16/9] overflow-hidden mb-6">
-                <img
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  alt="A macro shot of premium textured paper with a gold-foil stamped logo."
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpbhKDtbSTGuUbu9wHOleBjhH0KmjnLKf0tqOxt9HHv38qE8yjFKqVbM3iIrrIUBP4TeRnXEJ8JzV-3yxhS78Fh3X0GRUqLttnfzAOtjxC5hiXC7-RuJ6D17xNOP5E7hSvqruvghdSTjh0eS_iGASqPCJH0p_4qAv2Lle8LdYMHaD49x1Dcw_a1kthrpOMKuIeEMUWXSvo_JL8UNIUWNHVNDNFSLVzieR4kEdffJF24mqKPQYNk4D_6t205SR5qQfbLnLOJX5Kezo"
-                />
-              </div>
-              <span className="font-label-sm text-gold uppercase tracking-widest mb-3 block">Design</span>
-              <h3 className="font-headline-md text-on-surface group-hover:text-gold transition-colors mb-4">Why Physical Assets Still Matter</h3>
-              <p className="font-body-md text-on-surface-variant line-clamp-2">The enduring power of tactile experiences in an increasingly digital landscape...</p>
-            </div>
+            ))}
           </div>
         </section>
 
