@@ -171,6 +171,20 @@ export default function Hero() {
         />
       </div>
 
+      {/* Starting Overlay */}
+      <div
+        className="fixed inset-0 z-10 flex items-center justify-center pointer-events-none"
+        style={{
+          backgroundColor: 'rgba(0,0,0,0.8)',
+          opacity: Math.max(0, 1 - progress / 0.10),
+          transition: 'opacity 0.2s',
+        }}
+      >
+        <p className="text-white/70 text-xs md:text-sm tracking-[0.3em] uppercase">
+          Scroll to see about the Media7
+        </p>
+      </div>
+
       <div className="fixed inset-0 flex items-end pb-12 md:pb-24 pointer-events-none">
         {features.map((f, i) => {
           const isActive = activeFeature === i
