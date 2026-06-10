@@ -150,7 +150,7 @@ export default function Contact({ onNavigate }) {
         <section className="max-w-7xl mx-auto px-6 mt-stack-lg">
           <div className="w-full overflow-hidden border border-white/5">
             <iframe
-              src="https://maps.google.com/maps?q=10.014936,76.3018219&z=15&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.123!2d76.3024694!3d10.0151273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080da588e92727%3A0xfb57d7fdb58a3559!2sMedia7!5e0!3m2!1sen!2sin!4v1"
               width="100%"
               height="450"
               style={{ border: 0 }}
