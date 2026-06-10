@@ -176,13 +176,37 @@ export default function Hero() {
         className="fixed inset-0 z-10 flex items-center justify-center pointer-events-none"
         style={{
           backgroundColor: 'rgba(0,0,0,0.8)',
-          opacity: Math.max(0, 1 - progress / 0.10),
-          transition: 'opacity 0.2s',
+          opacity: Math.max(0, 1 - progress / 0.15),
+          transition: 'opacity 0.3s',
         }}
       >
         <p className="text-white/70 text-xs md:text-sm tracking-[0.3em] uppercase">
-          Scroll to see about the Media7
+          Scroll to see the Media7
         </p>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div
+        className="fixed left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-[5]"
+        style={{
+          bottom: isMobile ? 'auto' : '2rem',
+          top: isMobile ? '1.5rem' : 'auto',
+          opacity: progress > 0.5 ? 0 : 1,
+          transition: 'opacity 0.8s',
+        }}
+      >
+        <style>{`
+          @keyframes scroll-bounce {
+            0%, 100% { transform: translateY(0); opacity: 0.6; }
+            50% { transform: translateY(8px); opacity: 1; }
+          }
+        `}</style>
+        <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/40">
+          {progress > 0.02 ? 'Continue scrolling' : 'Scroll'}
+        </span>
+        <span className="material-symbols-outlined text-white/60 text-2xl" style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }}>
+          keyboard_arrow_down
+        </span>
       </div>
 
       <div className="fixed inset-0 flex items-end pb-12 md:pb-24 pointer-events-none">
@@ -232,29 +256,6 @@ export default function Hero() {
         })}
       </div>
 
-      {/* Scroll Indicator */}
-      <div
-        className="fixed left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-40"
-        style={{
-          bottom: isMobile ? 'auto' : '2rem',
-          top: isMobile ? '1.5rem' : 'auto',
-          opacity: progress > 0.5 ? 0 : 1,
-          transition: 'opacity 0.8s',
-        }}
-      >
-        <style>{`
-          @keyframes scroll-bounce {
-            0%, 100% { transform: translateY(0); opacity: 0.6; }
-            50% { transform: translateY(8px); opacity: 1; }
-          }
-        `}</style>
-        <span className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/40">
-          {progress > 0.02 ? 'Continue scrolling' : 'Scroll'}
-        </span>
-        <span className="material-symbols-outlined text-white/60 text-2xl" style={{ animation: 'scroll-bounce 2s ease-in-out infinite' }}>
-          keyboard_arrow_down
-        </span>
-      </div>
 
       <div className="bg-black" style={{ height: `${SCROLL_SECTIONS * 100}vh` }} />
     </>
