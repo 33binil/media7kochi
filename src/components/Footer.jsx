@@ -51,7 +51,12 @@ export default function Footer({ onNavigate, currentPage }) {
         </div>
       </div>
       <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="font-manrope text-sm text-zinc-500">&copy; 2026 Media7. All rights reserved.</p>
+        <div className="flex flex-col items-center md:items-start gap-1">
+          <p className="font-manrope text-sm text-zinc-500">&copy; 2026 Media7. All rights reserved.</p>
+          <p className="font-manrope text-xs text-zinc-600">
+            Website created by <a href="https://astrivix.in" target="_blank" rel="noopener noreferrer" className="text-zinc-500 hover:text-gold transition-colors">astrivix.in</a>
+          </p>
+        </div>
         <div className="flex gap-8 font-manrope text-xs text-zinc-600 uppercase tracking-widest">
           <button onClick={() => onNavigate?.('privacy')} className="hover:text-gold transition-colors uppercase tracking-widest">Privacy Policy</button>
           <button onClick={() => onNavigate?.('terms')} className="hover:text-gold transition-colors uppercase tracking-widest">Terms of Service</button>
