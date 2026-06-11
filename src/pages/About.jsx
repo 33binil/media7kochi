@@ -1,11 +1,49 @@
+import { useEffect } from 'react'
 import Footer from '../components/Footer'
 
+function useRevealOnScroll() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    if (!els.length) return
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+    els.forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 export default function About({ onNavigate }) {
+  useRevealOnScroll()
+
   return (
     <div className="h-screen overflow-y-auto bg-[#0B0B0B] text-on-background selection:bg-primary-container selection:text-on-primary-container">
+      <style>{`
+        .reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .reveal.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+      `}</style>
       <main className="pt-24">
         {/* Hero Section */}
-        <section className="relative h-[614px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[614px] flex items-center justify-center overflow-hidden reveal revealed">
           <div className="absolute inset-0 z-0">
             <img
               className="w-full h-full object-cover opacity-40"
@@ -26,7 +64,7 @@ export default function About({ onNavigate }) {
         {/* Legacy & Philosophy */}
         <section className="py-section-gap max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-gutter items-start">
-            <div className="space-y-stack-lg">
+            <div className="space-y-stack-lg reveal">
               <h2 className="font-headline-lg text-on-surface">Our Story</h2>
               <div className="w-20 h-1 bg-primary-container" />
               <p className="font-body-lg text-on-surface-variant leading-relaxed">
@@ -36,7 +74,7 @@ export default function About({ onNavigate }) {
                 Our journey is driven by passion, creativity, and a commitment to excellence. From branding and advertising to ad film production, digital marketing, corporate videos, and event management, we help businesses transform ideas into memorable brand experiences that inspire, engage, and deliver results.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-lg bg-surface-container-low p-10 border border-white/5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-stack-lg bg-surface-container-low p-10 border border-white/5 reveal reveal-delay-1">
               <div className="space-y-stack-sm">
                 <span className="material-symbols-outlined text-[#F5C542] text-4xl">verified</span>
                 <h3 className="font-headline-md text-on-surface text-xl">Integrity</h3>
@@ -64,7 +102,7 @@ export default function About({ onNavigate }) {
         {/* Vision & Mission */}
         <section className="py-section-gap bg-[#110e06]">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-gutter">
-            <div className="group bg-[#1A1A1A] p-12 border border-white/5 transition-all duration-500 hover:border-[#F5C542]/30 shadow-2xl hover:-translate-y-2">
+            <div className="group bg-[#1A1A1A] p-12 border border-white/5 transition-all duration-500 hover:border-[#F5C542]/30 shadow-2xl hover:-translate-y-2 reveal">
               <div className="flex justify-between items-start mb-8">
                 <h3 className="font-headline-lg text-[#F5C542]">Mission</h3>
                 <span className="material-symbols-outlined text-[#F5C542] text-5xl">rocket_launch</span>
@@ -73,7 +111,7 @@ export default function About({ onNavigate }) {
                 "To help businesses build powerful brands through creative storytelling, strategic marketing, and innovative media solutions that inspire audiences, drive engagement, and deliver measurable growth."
               </p>
             </div>
-            <div className="group bg-[#F5C542] p-12 border border-[#F5C542] transition-all duration-500 hover:bg-[#ffdf95] shadow-2xl hover:-translate-y-2">
+            <div className="group bg-[#F5C542] p-12 border border-[#F5C542] transition-all duration-500 hover:bg-[#ffdf95] shadow-2xl hover:-translate-y-2 reveal reveal-delay-1">
               <div className="flex justify-between items-start mb-8 text-[#0B0B0B]">
                 <h3 className="font-headline-lg">Vision</h3>
                 <span className="material-symbols-outlined text-5xl">insights</span>
@@ -88,19 +126,19 @@ export default function About({ onNavigate }) {
         {/* Statistics */}
         <section className="py-section-gap border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-gutter text-center">
-            <div className="space-y-stack-sm">
+            <div className="space-y-stack-sm reveal">
               <div className="font-display-xl text-[#F5C542]">7+</div>
               <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Years of Experience</div>
             </div>
-            <div className="space-y-stack-sm">
+            <div className="space-y-stack-sm reveal reveal-delay-1">
               <div className="font-display-xl text-[#F5C542]">20+</div>
               <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Projects Delivered</div>
             </div>
-            <div className="space-y-stack-sm">
+            <div className="space-y-stack-sm reveal reveal-delay-2">
               <div className="font-display-xl text-[#F5C542]">20+</div>
               <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Brands Served</div>
             </div>
-            <div className="space-y-stack-sm">
+            <div className="space-y-stack-sm reveal reveal-delay-3">
               <div className="font-display-xl text-[#F5C542]">100%</div>
               <div className="font-label-sm text-on-surface-variant uppercase tracking-widest">Commitment to Quality</div>
             </div>
@@ -109,7 +147,7 @@ export default function About({ onNavigate }) {
 
         {/* Leadership */}
         <section className="py-section-gap max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-stack-lg">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-stack-lg reveal">
             <div>
               <span className="font-label-sm text-primary-container uppercase tracking-[0.3em] mb-4 block">Our Partners</span>
               <h2 className="font-headline-lg text-on-surface">Building lasting relationships with businesses, brands, <br /> and organizations across industries.</h2>
@@ -120,7 +158,7 @@ export default function About({ onNavigate }) {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
             {/* Partner 1 */}
-            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
+            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5 reveal">
               <img
                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 alt="Grace Financials"
@@ -133,7 +171,7 @@ export default function About({ onNavigate }) {
               </div>
             </div>
             {/* Partner 2 */}
-            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
+            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5 reveal reveal-delay-1">
               <img
                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 alt="Wild Wind Logo"
@@ -146,7 +184,7 @@ export default function About({ onNavigate }) {
               </div>
             </div>
             {/* Partner 3 */}
-            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
+            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5 reveal reveal-delay-2">
               <img
                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 alt="Anvi Group of Companies"
@@ -159,7 +197,7 @@ export default function About({ onNavigate }) {
               </div>
             </div>
             {/* Partner 4 */}
-            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5">
+            <div className="group relative aspect-[3/4] overflow-hidden bg-surface-container-high border border-white/5 reveal reveal-delay-3">
               <img
                 className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                 alt="Marina Properties Management"

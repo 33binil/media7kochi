@@ -1,12 +1,51 @@
+import { useEffect } from 'react'
 import Footer from '../components/Footer'
 import { jobs } from '../data/jobs'
 
+function useRevealOnScroll() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    if (!els.length) return
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+    els.forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 export default function Careers({ onNavigate }) {
+  useRevealOnScroll()
   return (
     <div className="h-screen overflow-y-auto bg-[#0B0B0B] text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+      <style>{`
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-6 { transition-delay: 0.6s; }
+`}</style>
       <main>
         {/* Hero Section */}
-        <section className="relative h-[819px] flex items-center justify-center overflow-hidden">
+        <section className="reveal revealed relative h-[819px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <img
               alt="A wide-angle shot of a high-end, contemporary corporate office environment at twilight. The space features minimalist architectural lines, floor-to-ceiling glass windows reflecting city lights, and warm ambient spotlighting. Polished concrete floors and dark charcoal walls create a sophisticated, luxury agency atmosphere. The mood is professional, exclusive, and serene, utilizing a palette of deep blacks, grays, and subtle gold reflections."
@@ -23,7 +62,7 @@ export default function Careers({ onNavigate }) {
         </section>
 
         {/* Careers Grid Section */}
-        <section className="max-w-7xl mx-auto px-6 py-section-gap">
+        <section className="reveal max-w-7xl mx-auto px-6 py-section-gap">
           <div className="flex flex-col gap-stack-lg">
             <div className="flex justify-between items-end mb-12">
               <div>
@@ -34,8 +73,8 @@ export default function Careers({ onNavigate }) {
 
             {/* Job Listing Cards */}
             <div className="space-y-6">
-              {jobs.map(job => (
-                <div key={job.id} className="group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]">
+              {jobs.map((job, i) => (
+                <div key={job.id} className={`reveal reveal-delay-${(i % 6) + 1} group bg-[#1A1A1A] p-8 border border-white/5 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 flex flex-col md:flex-row items-center justify-between gap-6 hover:scale-[1.01]`}>
                   <div className="flex-1">
                     <span className="font-label-sm text-primary-container">{job.department}</span>
                     <h3 className="font-headline-md text-on-surface mt-2">{job.title}</h3>
@@ -52,14 +91,14 @@ export default function Careers({ onNavigate }) {
         </section>
 
       
-        <section className="bg-surface-container-low py-section-gap">
+        <section className="reveal bg-surface-container-low py-section-gap">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-headline-lg text-on-surface">The Media7 Experience</h2>
               <p className="text-on-surface-variant font-body-lg max-w-2xl mx-auto mt-4">Where Creativity Meets Innovation. <br/> At Media7, we foster a culture of collaboration, creativity, and continuous growth. Our team thrives in an environment that encourages bold ideas, strategic thinking, and a passion for delivering exceptional results.</p>
             </div>
             <div className="grid grid-cols-12 gap-6 h-[700px]">
-              <div className="col-span-8 relative group overflow-hidden">
+              <div className="reveal reveal-delay-1 col-span-8 relative group overflow-hidden">
                 <img
                   alt="Office"
                   className="w-full h-full object-cover transition-all duration-700"
@@ -70,7 +109,7 @@ export default function Careers({ onNavigate }) {
                 </div>
               </div>
               <div className="col-span-4 flex flex-col gap-6">
-                <div className="flex-1 relative group overflow-hidden">
+                <div className="reveal reveal-delay-2 flex-1 relative group overflow-hidden">
                   <img
                     alt="Office Space"
                     className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
@@ -80,7 +119,7 @@ export default function Careers({ onNavigate }) {
                     <p className="font-body-lg font-bold text-white">Inspiring Spaces</p>
                   </div>
                 </div>
-                <div className="flex-1 bg-primary-container p-8 flex flex-col justify-end">
+                <div className="reveal reveal-delay-3 flex-1 bg-primary-container p-8 flex flex-col justify-end">
                   <span className="material-symbols-outlined text-4xl mb-4 text-on-primary-fixed">star</span>
                   <p className="font-headline-md text-on-primary-fixed leading-tight">Voted #1 Media Workplace 2024</p>
                 </div>
@@ -90,7 +129,7 @@ export default function Careers({ onNavigate }) {
         </section>
 
         {/* Contact Section */}
-        <section className="max-w-7xl mx-auto px-6 py-section-gap">
+        <section className="reveal max-w-7xl mx-auto px-6 py-section-gap">
           <div className="text-center mb-16">
             <h2 className="font-headline-lg text-on-surface mb-4">Get in Touch</h2>
             <p className="text-on-surface-variant font-body-lg max-w-2xl mx-auto">Have questions or ready to start a conversation? Reach out to us directly.</p>
@@ -98,7 +137,7 @@ export default function Careers({ onNavigate }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
             <a
               href="mailto:talent@media7.agency"
-              className="group bg-[#1A1A1A] border border-white/5 p-10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 hover:scale-[1.02]"
+              className="reveal reveal-delay-1 group bg-[#1A1A1A] border border-white/5 p-10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 hover:scale-[1.02]"
             >
               <div className="w-16 h-16 flex items-center justify-center bg-surface-container group-hover:bg-primary-container/20 transition-colors">
                 <span className="material-symbols-outlined text-4xl text-primary-container">mail</span>
@@ -113,7 +152,7 @@ export default function Careers({ onNavigate }) {
               href="https://wa.me/+919995533809"
               target="_blank"
               rel="noopener noreferrer"
-              className="group bg-[#1A1A1A] border border-white/5 p-10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 hover:scale-[1.02]"
+              className="reveal reveal-delay-2 group bg-[#1A1A1A] border border-white/5 p-10 flex flex-col items-center text-center gap-6 hover:shadow-2xl hover:shadow-black/40 transition-all duration-300 hover:scale-[1.02]"
             >
               <div className="w-16 h-16 flex items-center justify-center bg-surface-container group-hover:bg-[#25D366]/20 transition-colors">
                 <span className="material-symbols-outlined text-4xl text-[#25D366]">chat</span>

@@ -1,11 +1,50 @@
+import { useEffect } from 'react'
 import Footer from '../components/Footer'
 
+function useRevealOnScroll() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    if (!els.length) return
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+    els.forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 export default function Services({ onNavigate }) {
+  useRevealOnScroll()
   return (
     <div className="h-screen overflow-y-auto bg-[#0B0B0B] text-on-background selection:bg-primary-container selection:text-on-primary-container font-body-md antialiased">
+      <style>{`
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-6 { transition-delay: 0.6s; }
+`}</style>
       <main className="mt-[80px]">
         {/* Hero Header */}
-        <section className="relative h-[614px] flex items-center justify-center overflow-hidden">
+        <section className="reveal revealed relative h-[614px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-b from-[#0B0B0B]/40 via-[#0B0B0B]/80 to-[#0B0B0B] z-10" />
             <img
@@ -25,7 +64,7 @@ export default function Services({ onNavigate }) {
         <section className="py-section-gap max-w-7xl mx-auto px-6">
           <div className="space-y-section-gap">
             {/* Branding & Marketing */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">01. Branding & Advertising</span>
                 <h2 className="font-headline-lg text-on-background mb-8">Building Brands That Stand Out</h2>
@@ -59,7 +98,7 @@ export default function Services({ onNavigate }) {
             </div>
 
             {/* Media Solutions */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <div className="aspect-[16/9] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
                   <img
@@ -75,17 +114,17 @@ export default function Services({ onNavigate }) {
                 <h2 className="font-headline-lg text-on-background mb-8">Ad Films & Corporate Videos</h2>
                 <p className="font-body-lg text-on-surface-variant mb-8">We create compelling visual stories that captivate audiences and communicate your brand message with clarity, creativity, and impact. From concept development to final production, we deliver content that leaves a lasting impression.</p>
                 <div className="grid grid-cols-2 gap-6 mb-10">
-                  <div className="p-6 bg-[#1A1A1A] border border-white/5">
+                  <div className="reveal reveal-delay-1 p-6 bg-[#1A1A1A] border border-white/5">
                     <span className="material-symbols-outlined text-primary-container text-3xl mb-4">videocam</span>
                     <h4 className="font-headline-md text-lg mb-2">Ad Film Production</h4>
                     <p className="text-sm text-on-surface-variant">Instagram, YouTube and Other Platforms Ads</p>
                   </div>
-                  <div className="p-6 bg-[#1A1A1A] border border-white/5">
+                  <div className="reveal reveal-delay-2 p-6 bg-[#1A1A1A] border border-white/5">
                     <span className="material-symbols-outlined text-primary-container text-3xl mb-4">photo_camera</span>
                     <h4 className="font-headline-md text-lg mb-2">Corporate Videos & Documentaries</h4>
                     <p className="text-sm text-on-surface-variant">Brand Films, Short Movies, Documentaries, Social Media Content</p>
                   </div>
-                  <div className="p-6 bg-[#1A1A1A] border border-white/5">
+                  <div className="reveal reveal-delay-3 p-6 bg-[#1A1A1A] border border-white/5">
                     <span className="material-symbols-outlined text-primary-container text-3xl mb-4">photo_camera</span>
                     <h4 className="font-headline-md text-lg mb-2">Photography</h4>
                     <p className="text-sm text-on-surface-variant">High-End Brand Assets</p>
@@ -96,27 +135,27 @@ export default function Services({ onNavigate }) {
             </div>
 
             {/* Digital Marketing */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">03. Digital Marketing</span>
                 <h2 className="font-headline-lg text-on-background mb-8">Growth Through Strategy</h2>
                 <p className="font-body-lg text-on-surface-variant mb-8">Our digital marketing solutions combine creativity, analytics, and technology to help brands reach the right audience, generate engagement, and achieve measurable business growth.</p>
                 <div className="space-y-6">
-                  <div className="flex gap-6 items-start">
+                  <div className="reveal reveal-delay-1 flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">1</div>
                     <div>
                       <h4 className="font-bold text-on-background">Social Media Marketing</h4>
                       <p className="text-on-surface-variant">Building brand awareness and audience engagement through strategic content and platform management.</p>
                     </div>
                   </div>
-                  <div className="flex gap-6 items-start">
+                  <div className="reveal reveal-delay-2 flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">2</div>
                     <div>
                       <h4 className="font-bold text-on-background">SEO & Search Visibility</h4>
                       <p className="text-on-surface-variant">Optimizing your digital presence to improve search rankings, organic traffic, and online discoverability.</p>
                     </div>
                   </div>
-                  <div className="flex gap-6 items-start">
+                  <div className="reveal reveal-delay-3 flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">3</div>
                     <div>
                       <h4 className="font-bold text-on-background">Targeted Ad Campaigns</h4>
@@ -138,7 +177,7 @@ export default function Services({ onNavigate }) {
             </div>
 
             {/* Events & Experiences */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <div className="aspect-[4/5] bg-[#1A1A1A] relative overflow-hidden rounded-lg group shadow-2xl">
                   <img
@@ -172,25 +211,25 @@ export default function Services({ onNavigate }) {
             </div>
 
             {/* Podcasting Video */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <span className="font-label-sm text-primary-container tracking-widest uppercase block mb-4">05. Podcasting Studio</span>
                 <h2 className="font-headline-lg text-on-background mb-8">Amplifying Voices That Matter</h2>
                 <p className="font-body-lg text-on-surface-variant mb-8">We provide a professional podcasting environment designed to help creators, brands, and businesses produce high-quality audio and video content. From recording and production to branding and distribution support, we help transform ideas into engaging conversations that connect with audiences.</p>
                 <div className="space-y-6">
-                  <div className="flex gap-6 items-start">
+                  <div className="reveal reveal-delay-1 flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">1</div>
                     <div>
                       <h4 className="font-bold text-on-background">Professional Audio & Video Podcast Production</h4>
                     </div>
                   </div>
-                  <div className="flex gap-6 items-start">
+                  <div className="reveal reveal-delay-2 flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">2</div>
                     <div>
                       <h4 className="font-bold text-on-background">Multi-Camera Recording Setup</h4>
                     </div>
                   </div>
-                  <div className="flex gap-6 items-start">
+                  <div className="reveal reveal-delay-3 flex gap-6 items-start">
                     <div className="w-12 h-12 flex-shrink-0 flex items-center justify-center border border-primary-container text-primary-container font-headline-md">3</div>
                     <div>
                       <h4 className="font-bold text-on-background">Podcast Branding, Editing & Distribution</h4>
@@ -213,7 +252,7 @@ export default function Services({ onNavigate }) {
         </section>
 
         {/* Methodology */}
-        <section className="py-section-gap bg-[#111111] border-y border-white/5">
+        <section className="reveal py-section-gap bg-[#111111] border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-20">
               <h2 className="font-headline-lg text-on-background mb-4">From Idea to Impact</h2>
@@ -223,7 +262,7 @@ export default function Services({ onNavigate }) {
               <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white/10 -translate-y-1/2 hidden md:block" />
               <div className="grid grid-cols-1 md:grid-cols-4 gap-12 relative">
                 {/* Step 1 */}
-                <div className="bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
+                <div className="reveal reveal-delay-1 bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
                   <div className="w-16 h-16 bg-primary-container flex items-center justify-center mb-8 mx-auto md:mx-0 shadow-lg shadow-primary-container/20">
                     <span className="material-symbols-outlined text-black text-3xl">lightbulb</span>
                   </div>
@@ -232,7 +271,7 @@ export default function Services({ onNavigate }) {
                   <p className="text-sm text-on-surface-variant">We understand your brand, objectives, audience, and market landscape to create a strong foundation for success.</p>
                 </div>
                 {/* Step 2 */}
-                <div className="bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
+                <div className="reveal reveal-delay-2 bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
                   <div className="w-16 h-16 bg-primary-container flex items-center justify-center mb-8 mx-auto md:mx-0 shadow-lg shadow-primary-container/20">
                     <span className="material-symbols-outlined text-black text-3xl">architecture</span>
                   </div>
@@ -241,7 +280,7 @@ export default function Services({ onNavigate }) {
                   <p className="text-sm text-on-surface-variant">Our team develops creative concepts, campaign strategies, and content plans tailored to your business goals.</p>
                 </div>
                 {/* Step 3 */}
-                <div className="bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
+                <div className="reveal reveal-delay-3 bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
                   <div className="w-16 h-16 bg-primary-container flex items-center justify-center mb-8 mx-auto md:mx-0 shadow-lg shadow-primary-container/20">
                     <span className="material-symbols-outlined text-black text-3xl">brush</span>
                   </div>
@@ -250,7 +289,7 @@ export default function Services({ onNavigate }) {
                   <p className="text-sm text-on-surface-variant">From branding and video production to digital marketing and events, we bring ideas to life with creativity and precision.</p>
                 </div>
                 {/* Step 4 */}
-                <div className="bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
+                <div className="reveal reveal-delay-4 bg-[#1A1A1A] p-8 relative group hover:bg-[#222222] transition-colors">
                   <div className="w-16 h-16 bg-primary-container flex items-center justify-center mb-8 mx-auto md:mx-0 shadow-lg shadow-primary-container/20">
                     <span className="material-symbols-outlined text-black text-3xl">trophy</span>
                   </div>
@@ -264,7 +303,7 @@ export default function Services({ onNavigate }) {
         </section>
 
         {/* CTA */}
-        <section className="py-section-gap text-center px-6">
+        <section className="reveal py-section-gap text-center px-6">
           <div className="max-w-3xl mx-auto border border-white/5 bg-[#1A1A1A] p-16 rounded-xl relative overflow-hidden">
             <div className="absolute top-0 right-0 w-32 h-32 bg-primary-container/5 rounded-full -mr-16 -mt-16 blur-3xl" />
             <h2 className="font-headline-lg text-on-background mb-6">Ready to elevate?</h2>

@@ -1,15 +1,53 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Footer from '../components/Footer'
 import { featuredPost, posts } from '../data/blog'
 
+function useRevealOnScroll() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    if (!els.length) return
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+    els.forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 export default function Blog({ onNavigate }) {
+  useRevealOnScroll()
   const [visibleCount, setVisibleCount] = useState(6)
   return (
     <div className="h-screen overflow-y-auto bg-[#0B0B0B] text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+      <style>{`
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-6 { transition-delay: 0.6s; }
+`}</style>
       <div className="h-20" />
 
       <main className="pb-section-gap px-6 max-w-7xl mx-auto">
-        <header className="mb-stack-lg space-y-4">
+        <header className="reveal revealed mb-stack-lg space-y-4">
           <p className="font-label-sm text-label-sm text-primary-container uppercase tracking-widest">Thought Leadership</p>
           <h1 className="font-display-xl text-4xl md:text-display-xl text-on-surface">Insights &amp; Updates</h1>
           <p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
@@ -17,7 +55,7 @@ export default function Blog({ onNavigate }) {
           </p>
         </header>
 
-        <section className="mb-stack-lg group">
+        <section className="reveal mb-stack-lg group">
           <div className="relative aspect-[21/9] overflow-hidden bg-surface-container-low border border-white/5 shadow-2xl">
             <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={featuredPost.alt} src={featuredPost.img} />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/40 to-transparent p-stack-lg flex flex-col justify-end">
@@ -35,9 +73,9 @@ export default function Blog({ onNavigate }) {
           </div>
         </section>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-          {posts.slice(0, visibleCount).map(post => (
-            <article key={post.id} className="flex flex-col bg-[#1A1A1A] border border-white/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 group">
+        <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          {posts.slice(0, visibleCount).map((post, i) => (
+            <article key={post.id} className={`reveal reveal-delay-${(i % 6) + 1} flex flex-col bg-[#1A1A1A] border border-white/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl hover:shadow-black/50 group`}>
               <div className="aspect-[16/9] overflow-hidden">
                 <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" alt={post.alt} src={post.img} />
               </div>
@@ -60,7 +98,7 @@ export default function Blog({ onNavigate }) {
         </div>
 
         {visibleCount < posts.length && (
-          <div className="mt-stack-lg flex justify-center">
+          <div className="reveal mt-stack-lg flex justify-center">
             <button
               onClick={() => setVisibleCount(posts.length)}
               className="px-8 py-3 border border-gold text-gold font-bold uppercase tracking-widest text-xs hover:bg-gold hover:text-[#0B0B0B] transition-all"

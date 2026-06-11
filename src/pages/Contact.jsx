@@ -1,9 +1,30 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Footer from '../components/Footer'
 
 const WHATSAPP_NUMBER = '918590017388'
 
+function useRevealOnScroll() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    if (!els.length) return
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+    els.forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 export default function Contact({ onNavigate }) {
+  useRevealOnScroll()
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -50,12 +71,29 @@ export default function Contact({ onNavigate }) {
 
   return (
     <div className="h-screen overflow-y-auto bg-[#0B0B0B] text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container">
+      <style>{`
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+  .reveal-delay-5 { transition-delay: 0.5s; }
+  .reveal-delay-6 { transition-delay: 0.6s; }
+`}</style>
       {/* Nav Spacer */}
       <div className="h-20" />
 
       <main className="pb-24">
         {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 mb-stack-lg">
+        <section className="reveal revealed max-w-7xl mx-auto px-6 mb-stack-lg">
           <h1 className="text-5xl md:text-display-4xl font-semibold text-on-surface mb-stack-md">Get in Touch</h1>
           <p className="font-body-md text-body-md text-on-surface-variant max-w-2xl">
             Ready to elevate your digital presence? Our executive team is available for private consultations and strategic partnership discussions.
@@ -65,9 +103,9 @@ export default function Contact({ onNavigate }) {
         {/* Dual Column Layout */}
         <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           {/* Left Column: Contact Cards */}
-          <div className="lg:col-span-4 space-y-gutter">
+          <div className="reveal lg:col-span-4 space-y-gutter">
             {/* Email Card */}
-            <div className="bg-[#1A1A1A] border border-white/5 p-stack-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/40 group">
+            <div className="reveal reveal-delay-1 bg-[#1A1A1A] border border-white/5 p-stack-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/40 group">
               <div className="flex items-center gap-4 mb-stack-md">
                 <div className="w-12 h-12 flex items-center justify-center bg-surface-container">
                   <span className="material-symbols-outlined text-[#F5C542] text-2xl">mail</span>
@@ -78,7 +116,7 @@ export default function Contact({ onNavigate }) {
             </div>
 
             {/* Phone Card */}
-            <div className="bg-[#1A1A1A] border border-white/5 p-stack-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/40 group">
+            <div className="reveal reveal-delay-2 bg-[#1A1A1A] border border-white/5 p-stack-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/40 group">
               <div className="flex items-center gap-4 mb-stack-md">
                 <div className="w-12 h-12 flex items-center justify-center bg-surface-container">
                   <span className="material-symbols-outlined text-[#F5C542] text-2xl">call</span>
@@ -89,7 +127,7 @@ export default function Contact({ onNavigate }) {
             </div>
 
             {/* Address Card */}
-            <div className="bg-[#1A1A1A] border border-white/5 p-stack-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/40 group">
+            <div className="reveal reveal-delay-3 bg-[#1A1A1A] border border-white/5 p-stack-lg transition-all duration-300 hover:shadow-2xl hover:shadow-black/40 group">
               <div className="flex items-center gap-4 mb-stack-md">
                 <div className="w-12 h-12 flex items-center justify-center bg-surface-container">
                   <span className="material-symbols-outlined text-[#F5C542] text-2xl">location_on</span>
@@ -101,7 +139,7 @@ export default function Contact({ onNavigate }) {
           </div>
 
           {/* Right Column: Project Inquiry Form */}
-          <div className="lg:col-span-8 bg-[#1A1A1A] border border-white/5 p-stack-lg">
+          <div className="reveal lg:col-span-8 bg-[#1A1A1A] border border-white/5 p-stack-lg">
             <h2 className="font-headline-md text-headline-md mb-stack-lg text-on-surface">Project Inquiry</h2>
             <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -147,7 +185,7 @@ export default function Contact({ onNavigate }) {
         </section>
 
         {/* Map Section */}
-        <section className="max-w-7xl mx-auto px-6 mt-stack-lg">
+        <section className="reveal max-w-7xl mx-auto px-6 mt-stack-lg">
           <div className="w-full overflow-hidden border border-white/5">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3928.123!2d76.3024694!3d10.0151273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080da588e92727%3A0xfb57d7fdb58a3559!2sMedia7!5e0!3m2!1sen!2sin!4v1"

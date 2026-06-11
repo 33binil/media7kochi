@@ -4,8 +4,29 @@ import Footer from '../components/Footer'
 import { projects } from '../data/portfolio'
 import { posts } from '../data/blog'
 
+function useRevealOnScroll() {
+  useEffect(() => {
+    const els = document.querySelectorAll('.reveal')
+    if (!els.length) return
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+    els.forEach(el => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+}
+
 export default function Home({ onNavigate }) {
   const ref = useRef(null)
+  useRevealOnScroll()
 
   useEffect(() => {
     const el = ref.current
@@ -51,11 +72,34 @@ export default function Home({ onNavigate }) {
       className="h-dvh w-full bg-[#0B0B0B]"
       style={{ transform: 'translateY(100%)', opacity: 0, willChange: 'transform, opacity' }}
     >
+      <style>{`
+        .reveal {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .reveal.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+        .reveal-delay-6 { transition-delay: 0.6s; }
+        .luxury-card {
+          transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+        }
+        .luxury-card:hover {
+          transform: translateY(-6px);
+        }
+      `}</style>
       <Navbar onNavigate={onNavigate} currentPage="home" />
       {/* Scrollable content */}
       <main className="h-dvh overflow-y-auto overscroll-behavior-contain pt-20">
         {/* Hero Section */}
-        <section className="relative h-[921px] flex items-center justify-center overflow-hidden">
+        <section className="relative h-[921px] flex items-center justify-center overflow-hidden reveal revealed">
           <div className="absolute inset-0 z-0">
             <img
               className="w-full h-full object-cover opacity-40"
@@ -87,17 +131,17 @@ export default function Home({ onNavigate }) {
         {/* Services Preview */}
         <section className="py-section-gap max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-            <div className="max-w-xl">
+            <div className="max-w-xl reveal">
               <span className="font-label-sm text-gold tracking-[0.2em] uppercase block mb-4">Our Expertise</span>
               <h2 className="font-headline-lg">Strategic solutions designed to help businesses build strong brands</h2>
             </div>
-            <p className="font-body-md text-on-surface-variant max-w-xs border-l border-gold/30 pl-6">
+            <p className="font-body-md text-on-surface-variant max-w-xs border-l border-gold/30 pl-6 reveal reveal-delay-1">
               A comprehensive range of media and marketing services tailored to enhance your brand visibility, engagement, and market presence.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Service 1 */}
-            <div className="luxury-card p-10 flex flex-col h-full">
+            <div className="luxury-card p-10 flex flex-col h-full reveal">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">workspace_premium</span>
               <h3 className="font-headline-md mb-4">Branding</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
@@ -108,7 +152,7 @@ export default function Home({ onNavigate }) {
               </button>
             </div>
             {/* Service 2 */}
-            <div className="luxury-card p-10 flex flex-col h-full">
+            <div className="luxury-card p-10 flex flex-col h-full reveal reveal-delay-1">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">play_circle</span>
               <h3 className="font-headline-md mb-4">Media Production</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
@@ -119,7 +163,7 @@ export default function Home({ onNavigate }) {
               </button>
             </div>
             {/* Service 3 */}
-            <div className="luxury-card p-10 flex flex-col h-full">
+            <div className="luxury-card p-10 flex flex-col h-full reveal reveal-delay-2">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">event_seat</span>
               <h3 className="font-headline-md mb-4">Event Management</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
@@ -130,7 +174,7 @@ export default function Home({ onNavigate }) {
               </button>
             </div>
               {/* Service 4 */}
-            <div className="luxury-card p-10 flex flex-col h-full">
+            <div className="luxury-card p-10 flex flex-col h-full reveal reveal-delay-3">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">campaign</span>
               <h3 className="font-headline-md mb-4">Digital Marketing</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
@@ -141,7 +185,7 @@ export default function Home({ onNavigate }) {
               </button>
             </div>
             {/* Service 5 */}
-            <div className="luxury-card p-10 flex flex-col h-full">
+            <div className="luxury-card p-10 flex flex-col h-full reveal reveal-delay-4">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">ads_click</span>
               <h3 className="font-headline-md mb-4">Advertising</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
@@ -152,7 +196,7 @@ export default function Home({ onNavigate }) {
               </button>
             </div>
               {/* Service 6 */}
-            <div className="luxury-card p-10 flex flex-col h-full">
+            <div className="luxury-card p-10 flex flex-col h-full reveal reveal-delay-5">
               <span className="material-symbols-outlined text-gold mb-8 text-4xl">rocket_launch</span>
               <h3 className="font-headline-md mb-4">Business Promotions</h3>
               <p className="font-body-md text-on-surface-variant mb-8 flex-grow">
@@ -168,7 +212,7 @@ export default function Home({ onNavigate }) {
         {/* Our Story */}
         <section className="bg-[#110e06] py-section-gap overflow-hidden">
           <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center gap-20">
-            <div className="relative">
+            <div className="relative reveal reveal-delay-1">
               <div className="aspect-[4/5] relative z-10">
                 <img
                   className="w-full h-full object-cover"
@@ -181,7 +225,7 @@ export default function Home({ onNavigate }) {
                 <span className="text-[#0B0B0B] font-bold text-xs uppercase tracking-tighter -rotate-90">Years of Excellence</span>
               </div>
             </div>
-            <div>
+            <div className="reveal reveal-delay-2">
               <span className="font-label-sm text-gold tracking-[0.2em] uppercase block mb-4">The Media7 Story</span>
               <h2 className="font-headline-lg mb-8">Empowering brands through creativity, strategy, and innovation.</h2>
               <div className="space-y-6 text-on-surface-variant font-body-md">
@@ -197,7 +241,7 @@ export default function Home({ onNavigate }) {
 
         {/* Case Studies */}
         <section className="py-section-gap max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 reveal">
             <span className="font-label-sm text-gold tracking-[0.2em] uppercase block mb-4">Portfolio</span>
             <h2 className="font-headline-lg">Showcasing creativity, innovation, and impactful brand experiences.</h2>
           </div>
@@ -205,7 +249,7 @@ export default function Home({ onNavigate }) {
             {projects.slice(0, 4).map((project, i) => {
               const isLarge = i === 0 || i === 3
               return (
-                <div key={project.id} className={`col-span-12 ${isLarge ? 'md:col-span-8' : 'md:col-span-4'} relative group overflow-hidden`}>
+                <div key={project.id} className={`col-span-12 ${isLarge ? 'md:col-span-8' : 'md:col-span-4'} relative group overflow-hidden reveal reveal-delay-${i + 1}`}>
                   <img
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     alt={project.alt}
@@ -226,7 +270,7 @@ export default function Home({ onNavigate }) {
         {/* Testimonials */}
         <section className="py-section-gap bg-[#1A1A1A] overflow-hidden">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="max-w-4xl mx-auto text-center">
+            <div className="max-w-4xl mx-auto text-center reveal">
               <span className="material-symbols-outlined text-gold text-4xl md:text-6xl mb-6 md:mb-8">MEDIA 7</span>
               <p className="font-headline-md text-headline-sm md:text-headline-md italic mb-8 md:mb-10 text-on-surface">
                 &quot;At Media7, we believe every brand has a story worth telling. Our mission is to create impactful content, innovative marketing strategies, and memorable brand experiences that help businesses connect with their audiences and achieve meaningful growth. We combine creativity, technology, and strategic thinking to deliver results that make a lasting impact.&quot;
@@ -250,13 +294,13 @@ export default function Home({ onNavigate }) {
 
         {/* Latest Thinking / Blog */}
         <section className="py-section-gap max-w-7xl mx-auto px-6">
-          <div className="flex justify-between items-center mb-16">
+          <div className="flex justify-between items-center mb-16 reveal">
             <h2 className="font-headline-lg">Latest Thinking.</h2>
             <button onClick={() => onNavigate?.('blog')} className="text-gold font-bold uppercase tracking-widest text-xs hover:text-white transition-colors">Read all Articles</button>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {posts.slice(0, 3).map(post => (
-              <div key={post.id} onClick={() => onNavigate?.(`blogpost-${post.id}`)} className="group cursor-pointer">
+            {posts.slice(0, 3).map((post, i) => (
+              <div key={post.id} onClick={() => onNavigate?.(`blogpost-${post.id}`)} className={`group cursor-pointer reveal reveal-delay-${i + 1}`}>
                 <div className="aspect-[16/9] overflow-hidden mb-6">
                   <img
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -273,7 +317,7 @@ export default function Home({ onNavigate }) {
         </section>
 
         {/* CTA Section */}
-        <section className="py-section-gap relative overflow-hidden bg-gold">
+        <section className="py-section-gap relative overflow-hidden bg-gold reveal">
           <div className="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <h2 className="font-display-xl text-[#0B0B0B] mb-8">Ready to elevate your <span className="italic underline decoration-2">presence</span>?</h2>
             <p className="font-body-lg text-[#0B0B0B]/80 max-w-2xl mx-auto mb-12">
